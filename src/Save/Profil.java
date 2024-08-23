@@ -1,27 +1,26 @@
 package Save;
 
-import java.io.Serializable;
-
 import DBZ.Main;
 import FighterBuild.Build;
+import java.io.Serializable;
 
 
 public class Profil implements Serializable {
 
 	
-	private boolean fighter[]=new boolean[Main.fighteranz];
+	private boolean[] fighter =new boolean[Main.fighteranz];
 	private int zeni=80000;
 	private int spielzeit=0;
 	private int siege=0,niederlagen=0;
 	private int teamfights=0;
 	private int storyprogress=0;
-	private boolean[] dragonballs=new boolean[7];
-    private boolean[] item=new boolean[100];
+	private final boolean[] dragonballs=new boolean[7];
+    private final boolean[] item=new boolean[100];
     private Build[] build=new Build[Main.fighteranz];
     
     private int[][] statistic=new int[Main.fighteranz][8];
     private int[][] pcstatistic=new int[Main.fighteranz][8];
-    private int[] mainstatistic=new int[50];
+    private final int[] mainstatistic=new int[50];
 	/*
 	 * 0. siege
 	 * 1. niederlagen

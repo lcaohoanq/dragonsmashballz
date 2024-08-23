@@ -1,13 +1,11 @@
 package Menu;
 
-import java.awt.Color;
-import java.awt.Graphics;
-
 import DBZ.Main;
 import DBZ.Sound;
 import Images.GameImages;
-import Stages.Cloud;
 import Stages.CloudStage;
+import java.awt.Color;
+import java.awt.Graphics;
 
 public class Intro {
 
@@ -47,7 +45,7 @@ public class Intro {
 		
 	int speed=10;
 		g.setColor(new Color(150,150,250));
-		g.fillRect( 0,0,(int)(1000),(int)(600));
+		g.fillRect( 0,0, 1000, 600);
 		
 		clouds.paintBackgroundClouds(g);
 	  clouds.moveClouds(speed, 0);

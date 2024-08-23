@@ -1,22 +1,20 @@
 package Battle;
 
+import DBZ.Main;
+import Images.GameImages;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.geom.AffineTransform;
 import java.util.ArrayList;
-
-import DBZ.Main;
-import Images.GameImages;
 
 public class DruckDuell {
 
 	
 	
     
-    private ArrayList<Druck> duell=new ArrayList<Druck>();
+    private final ArrayList<Druck> duell=new ArrayList<Druck>();
     
     private class Druck{
     	
@@ -72,14 +70,14 @@ public class DruckDuell {
 	
 	public Attack[] duell(Graphics g, Attack[] att, boolean[] press)
 	{
-		//Überprüfe auf neue Druckduelle		
+		//ï¿½berprï¿½fe auf neue Druckduelle		
 		for(int i=0; i<att.length; i++)
 		{
 			if(att[i]!=null&&isFree(i))
 			{							  
 	 			float xspeed=att[i].getSpeed()[0];
 	 			if(xspeed>0)
-	 			{// Rechtsfliegende sind die Träger des Duells
+	 			{// Rechtsfliegende sind die Trï¿½ger des Duells
 	 				
 	 				for(int h=0; h<att.length; h++)
 	 				{
@@ -92,7 +90,7 @@ public class DruckDuell {
 	 						float xspeed2=att[h].getSpeed()[0];
 	 						if(xspeed2<0)
 	 						{
-	 					        //Bereit für Druckduell
+	 					        //Bereit fï¿½r Druckduell
 	 							  Rectangle rec1=att[i].getSize();
 	 							  Rectangle rec2=att[h].getSize();
 	 							  if(rec1.intersects(rec2))
@@ -113,14 +111,14 @@ public class DruckDuell {
 	 											 }
 	 											 else
 	 											 {
-	 												 //Andere Attacke zerstören
+	 												 //Andere Attacke zerstï¿½ren
 	 												 destroyAttack(att[h]);
 	 												 att[h]=null;
 	 											 }
 	 										  }
 	 										  else if(att[h].getAttackTyp()==Attack.TYP_AURA)
 	 										  {
-	 											  //i zerstören
+	 											  //i zerstï¿½ren
 	 											 destroyAttack(att[i]);
 	 											 att[i]=null;
 	 											 break;
@@ -144,7 +142,7 @@ public class DruckDuell {
 	 									  }
 	 									  else
 	 									  {
-	 										  // h zerstören
+	 										  // h zerstï¿½ren
 	 										  destroyAttack(att[h]);
 	 										 att[h]=null;
 	 									  }
@@ -153,7 +151,7 @@ public class DruckDuell {
 	 								  {
 	 									  if(att[h].canDruckDuell())
 	 									  {
-	 										  // i zerstören
+	 										  // i zerstï¿½ren
 	 										     destroyAttack(att[i]);
 	 										    att[i]=null;
 	 				 						    break;
@@ -164,7 +162,7 @@ public class DruckDuell {
 	 										  {
 	 											  if(att[h].isSpecial())
 	 											  {
-	 												  // Beide zerstören
+	 												  // Beide zerstï¿½ren
 	 		 											destroyAttack(att[i]);
 	 		 											destroyAttack(att[h]);
 	 		 											 att[i]=null;
@@ -185,7 +183,7 @@ public class DruckDuell {
 	 										 	}
 	 										 	else
 	 										 	{
-	 										 	  // Beide zerstören
+	 										 	  // Beide zerstï¿½ren
 		 											destroyAttack(att[i]);
 		 											destroyAttack(att[h]);
 		 											 att[i]=null;
@@ -244,7 +242,7 @@ public class DruckDuell {
 		    	else
 		    	{
 		    		if(druck.press1>druck.press2){
-		    			//nach rechts drücken
+		    			//nach rechts drï¿½cken
 		    			f=(float) (Math.random()*10);
 		    			att[at1].moveDruckDuell(f);
 				    	att[at2].moveDruckDuell(-f);
@@ -258,7 +256,7 @@ public class DruckDuell {
 		    		}
 		    		else
 		    		{
-		    			//nach links drücken	
+		    			//nach links drï¿½cken	
 		    			f=-(float) (Math.random()*10);
 		    			att[at1].moveDruckDuell(f);
 				    	att[at2].moveDruckDuell(-f);

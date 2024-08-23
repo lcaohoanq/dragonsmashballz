@@ -1,17 +1,15 @@
 package Save;
 
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInput;
-import java.io.ObjectInputStream;
-
 import Achievements.Achievements;
 import DBZ.Main;
 import Settings.ControlSettings;
 import Settings.GameSettings;
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
 
 public class ProfilLoader {
 	

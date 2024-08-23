@@ -1,26 +1,25 @@
 package Controlls;
 
 import java.util.ArrayList;
-
 import net.java.games.input.Component;
 import net.java.games.input.Controller;
 import net.java.games.input.Rumbler;
 
 public class GamePad {
 
-	  private Controller controller;
+	  private final Controller controller;
 	  private Component[] comps;  // holds the components
 
 	  // comps[] indices for specific components
 	  private int xAxisIdx, yAxisIdx, zAxisIdx, rzAxisIdx;
 	                              // indices for the analog sticks axes
 	  private int povIdx;         // index for the POV hat
-	  private  ArrayList<Integer> buttonsIdx=new ArrayList<Integer>();   // indices for the buttons
+	  private final ArrayList<Integer> buttonsIdx=new ArrayList<Integer>();   // indices for the buttons
 
 	  private Rumbler[] rumblers;
 	  private int rumblerIdx;      // index for the rumbler being used
 	  private boolean rumblerOn = false;   // whether rumbler is on or off
-	  private String controllername;
+	  private final String controllername;
 
 	  public GamePad(Controller c)
 	  {
@@ -58,7 +57,7 @@ public class GamePad {
 	    float value;
 	    for(int i=0; i < buttons.length; i++) {
 	      value = comps[ buttonsIdx.get(i) ].getPollData();
-	      buttons[i] = ((value == 0.0f) ? false : true);
+	      buttons[i] = (value != 0.0f);
 	    }
 	    return buttons;
 	  }  
@@ -75,7 +74,7 @@ public class GamePad {
 	 
 	    float value = comps[ buttonsIdx.get(pos-1)].getPollData();   
 	       // array range is 0-NUM_BUTTONS-1
-	    return ((value == 0.0f) ? false : true);
+	    return (value != 0.0f);
 	  } // end of isButtonPressed()
 
 
@@ -158,8 +157,7 @@ public class GamePad {
 	    if (!c.isAnalog() && !c.isRelative()) {    // digital and absolute
 	      String className = c.getIdentifier().getClass().getName();
 	      // System.out.println(c.getName() + " identifier: " + className);
-	      if (className.endsWith("Button"))
-	        return true;
+            return className.endsWith("Button");
 	    }
 	    return false;
 	  }  // end of isButton()

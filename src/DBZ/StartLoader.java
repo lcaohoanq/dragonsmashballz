@@ -4,8 +4,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
-import java.io.IOException;
-import java.util.Scanner;
 
 public class StartLoader {
 
@@ -14,9 +12,10 @@ public class StartLoader {
 		
 	}
 	
-	private float winkel,radius=120;;
-	private Font font=new Font("Arial",Font.BOLD,23);
-	private Font font2=new Font("Arial",Font.BOLD,15);
+	private float winkel;
+    private final float radius=120;
+    private final Font font=new Font("Arial",Font.BOLD,23);
+	private final Font font2=new Font("Arial",Font.BOLD,15);
 	
 	
 	public void paint(Graphics g)

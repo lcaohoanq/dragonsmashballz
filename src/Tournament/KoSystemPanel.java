@@ -1,10 +1,8 @@
 package Tournament;
 
+import Images.GameImages;
 import java.awt.Color;
 import java.awt.Graphics;
-
-import DBZ.Main;
-import Images.GameImages;
  
 
  
@@ -45,9 +43,9 @@ public class KoSystemPanel
         for(int i=1;i<anzahlRunden;i++)
         {
         	int[] f=new int[(int)spielerInRunde];
-        	int[] s=new int[(int)spielerInRunde];;
-     
-          for(int h=0; h<f.length; h++){
+        	int[] s=new int[(int)spielerInRunde];
+
+            for(int h=0; h<f.length; h++){
         		f[h]=-1;
         	    
           }

@@ -1,15 +1,13 @@
 package Stages;
 
+import Images.GameImages;
 import java.awt.Dimension;
 import java.awt.Graphics;
-
-import DBZ.Main;
-import Images.GameImages;
 
 
 public class CloudStage {
 
-	private Cloud[] clouds;
+	private final Cloud[] clouds;
 	private int background;
 	private int foreground;
 	
@@ -55,11 +53,12 @@ public class CloudStage {
 		int id=clouds[i].getID();
 		Dimension dim=clouds[i].getDimension();
 		if(clouds[i].getLeft()){
-			g.drawImage(GameImages.clouds[id],(int)(x),(int)(y),(int)(dim.width),(int)(dim.height),null);			
+			g.drawImage(GameImages.clouds[id], x, y, dim.width, dim.height,null);
 		}
 		else				
 		{
-			g.drawImage(GameImages.clouds[id],(int)((x+dim.width)),(int)(y),(int)(-dim.width),(int)(dim.height),null);
+			g.drawImage(GameImages.clouds[id], (x+dim.width), y, -dim.width,
+                dim.height,null);
 		}
 	}
 	

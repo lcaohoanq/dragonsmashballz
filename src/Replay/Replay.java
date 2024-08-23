@@ -4,7 +4,7 @@ public class Replay {
 
 	
 	
-	private Fighter[] fighter;
+	private final Fighter[] fighter;
 	
 	public Replay(int fanz)
 	{

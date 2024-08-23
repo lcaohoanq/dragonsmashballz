@@ -1,13 +1,12 @@
 package DBZ;
 
+import Fight.Fighter;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-
-import Fight.Fighter;
 
 public class FightMapViewer {
 
@@ -22,7 +21,7 @@ public class FightMapViewer {
 	
 	public void paint(Graphics g, Image b, Fighter[] f, Dimension dim,Image mapimage)
 	{
-		//Größte Distanz zwischen Spielern ermitteln:
+		//Grï¿½ï¿½te Distanz zwischen Spielern ermitteln:
 		ArrayList<Integer> posx=new ArrayList<Integer>();
 		ArrayList<Integer> posy=new ArrayList<Integer>();
 		for(int i=0; i<f.length; i++)

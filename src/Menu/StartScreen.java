@@ -1,14 +1,11 @@
 package Menu;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.geom.AffineTransform;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import DBZ.Main;
 import Images.GameImages;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class StartScreen {
 
@@ -32,7 +29,7 @@ public class StartScreen {
 		
 		if(Main.main.prepareImage(GameImages.brolllogo, null))
 		{		
-			if(started==false)
+			if(!started)
 			{
 				Main.sound.playSound(24, true);
 				started=true;
@@ -70,7 +67,7 @@ public class StartScreen {
 	}
 
 	private class Loop extends TimerTask{
-        private int t=0;
+        private final int t=0;
 		
 		@Override
 		public void run() {

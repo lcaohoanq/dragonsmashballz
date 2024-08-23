@@ -1,13 +1,12 @@
 package Battle;
 
 
+import DBZ.Main;
+import Images.GameImages;
 import java.awt.AlphaComposite;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
-
-import DBZ.Main;
-import Images.GameImages;
 
 
 public class KiAura extends Attack {
@@ -64,7 +63,9 @@ public class KiAura extends Attack {
 		{
 		Graphics2D g2d = (Graphics2D) g;
 		  g2d.setComposite(AlphaComposite. getInstance(AlphaComposite.SRC_OVER, 0.5f));
-				g2d.drawImage(GameImages.effects[art],(int)((pos[0]-dim.width/2)),(int)((pos[1]-dim.height/2)),(int)(dim.width),(int)(dim.height),null);
+				g2d.drawImage(GameImages.effects[art],(int)((pos[0]-dim.width/2)),(int)((pos[1]-dim.height/2)),
+                    dim.width,
+                    dim.height,null);
 				  g2d.setComposite(AlphaComposite. getInstance(AlphaComposite.SRC_OVER, 1f));	
 		}
 			if(hit>0)
@@ -73,7 +74,11 @@ public class KiAura extends Attack {
 				{
 				for(int i=0; i<5; i++)
 				{
-				g.drawImage(GameImages.effects[3+(int)(Math.random()*4+1)],(int)((hitx+(int)(Math.random()*60+1)-60)),(int)((hity+(int)(Math.random()*60+1)-60)),(int)(60),(int)(60),null);
+				g.drawImage(GameImages.effects[3+(int)(Math.random()*4+1)],
+                    (hitx+(int)(Math.random()*60+1)-60),
+                    (hity+(int)(Math.random()*60+1)-60),
+                    60,
+                    60,null);
 				}
 				}
 				hit++;
@@ -82,7 +87,7 @@ public class KiAura extends Attack {
 					hit=0;
 				}
 			}
-			if(stopmovement==false)
+			if(!stopmovement)
 			{
 				 move();	
 			}
@@ -96,7 +101,9 @@ public class KiAura extends Attack {
 	@Override
 	public Rectangle getSize() {
 		// TODO Auto-generated method stub
-		Rectangle rec=new Rectangle((int)((pos[0]-dim.width/2)),(int)((pos[1]-dim.height/2)),(int)(dim.width),(int)(dim.height));
+		Rectangle rec=new Rectangle((int)((pos[0]-dim.width/2)),(int)((pos[1]-dim.height/2)),
+            dim.width,
+            dim.height);
 		return rec;
 	}
 

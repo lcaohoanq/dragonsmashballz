@@ -5,9 +5,9 @@ public class Wunsch {
 	
 	public static final int ART_GELD=0,ART_FIGHTER=1,ART_ITEM=2,ART_MAP=3;
 	
-	private int art;
-	private String name;
-	private int value;
+	private final int art;
+	private final String name;
+	private final int value;
 	
 	public Wunsch(String n, int a, int v)
 	{

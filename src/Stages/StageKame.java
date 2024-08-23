@@ -1,12 +1,8 @@
 package Stages;
 
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-
-import DBZ.Main;
 import Images.GameImages;
+import java.awt.Graphics;
 
 
 public class StageKame extends Stage{
@@ -18,7 +14,7 @@ public class StageKame extends Stage{
 	
 	public void paint(Graphics g)
 	{	
-		g.drawImage(GameImages.maps[3], 0,0,(int)(1000),(int)(600),null);		
+		g.drawImage(GameImages.maps[3], 0,0, 1000, 600,null);
 	}
 	
 

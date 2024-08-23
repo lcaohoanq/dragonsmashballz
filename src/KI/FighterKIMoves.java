@@ -1,12 +1,9 @@
 package KI;
 
-import java.awt.Point;
-
 import Battle.Attack;
-import DBZ.ErrorLogger;
 import DBZ.Main;
-import Fight.Fighter;
 import Fight.FighterData;
+import java.awt.Point;
 
 
 public abstract class FighterKIMoves extends KIMethodes{
@@ -29,7 +26,7 @@ public abstract class FighterKIMoves extends KIMethodes{
 	
 	/**
 	 * Der KI Taktgebervorgang. 
-	 * Steuert alle Abläufe, verwaltet Stellenwerte und ändert aktuelle
+	 * Steuert alle Ablï¿½ufe, verwaltet Stellenwerte und ï¿½ndert aktuelle
 	 * Aktionen aus der Aktionenkette
 	 */
 	protected void auto(Attack[] attacks, int id)
@@ -84,8 +81,8 @@ public abstract class FighterKIMoves extends KIMethodes{
 	}
 	
 	/**
-	 * Überprüft ob feindliche Angriffe in der Nähe sind.
-	 * Führt automatisch zu einem MoveAway() von der Angriffsquelle 
+	 * ï¿½berprï¿½ft ob feindliche Angriffe in der Nï¿½he sind.
+	 * Fï¿½hrt automatisch zu einem MoveAway() von der Angriffsquelle 
 	 */
 	protected void cheackDangerSituation(Attack[] att, int id) {
 		// TODO Auto-generated method stub
@@ -130,14 +127,14 @@ public abstract class FighterKIMoves extends KIMethodes{
 	}
 
 	/**
-	 * Kämpfer von einer Angriffsquelle wegbewegen.
+	 * Kï¿½mpfer von einer Angriffsquelle wegbewegen.
 	 * float[] speed wird als Bewegungsgeschwindigkeit
-	 * der Attacke übergeben, um ein genaueres Ausweichen
-	 * zu ermöglichen
+	 * der Attacke ï¿½bergeben, um ein genaueres Ausweichen
+	 * zu ermï¿½glichen
 	 * 
-	 * Achtung: Überprüft nicht ob genug KI zum Sprinten
-	 * übrig ist. Führt automatisch zum Verteidigen wenn
-	 * kein KI mehr übrig ist (Selbststeuerung des Fighters)
+	 * Achtung: ï¿½berprï¿½ft nicht ob genug KI zum Sprinten
+	 * ï¿½brig ist. Fï¿½hrt automatisch zum Verteidigen wenn
+	 * kein KI mehr ï¿½brig ist (Selbststeuerung des Fighters)
 	 */
 	protected  void moveAway(int ax, int ay, float[] speed ) {
 		// TODO Auto-generated method stub
@@ -197,7 +194,7 @@ public abstract class FighterKIMoves extends KIMethodes{
 	}
 
 	/**
-	 * Führt die aktuelle Aktion aus der Aktionskette aus
+	 * Fï¿½hrt die aktuelle Aktion aus der Aktionskette aus
 	 */
 	protected  void doAktion()
 	{
@@ -220,7 +217,7 @@ public abstract class FighterKIMoves extends KIMethodes{
 	/**
 	 * Befehl zum Weiterentwickeln.
 	 * Wenn genug KI zum weiterentwickeln vorhanden ist,
-	 * entwickelt sich der Kämpfer.
+	 * entwickelt sich der Kï¿½mpfer.
 	 * 
 	 * Autoablauf:
 	 * Wenn ein Gegner zu Nahe kommt, wird die
@@ -247,7 +244,7 @@ public abstract class FighterKIMoves extends KIMethodes{
 
 	/**
 	 * Befehl zum Abfeuern eines Ki-Angriffs.
-	 * Wenn zu wenig Ki, wird Ki Laden ausgeführt.
+	 * Wenn zu wenig Ki, wird Ki Laden ausgefï¿½hrt.
 	 * 
 	 * Autoablauf:
 	 * Wenn ein Gegner zu Nahe kommt, wird die
@@ -271,7 +268,7 @@ public abstract class FighterKIMoves extends KIMethodes{
 
 	/**
 	 * Befehl zum PowerUP. Wenn nicht genug Ki vorhanden ist,
-	 * wird der Ki-Load Befehl ausgeführt.
+	 * wird der Ki-Load Befehl ausgefï¿½hrt.
 	 * 
 	 * Autoablauf:
 	 * Wenn ein Gegner zu Nahe kommt, wird die
@@ -295,7 +292,7 @@ public abstract class FighterKIMoves extends KIMethodes{
 
 	/**
 	 * Befehl zum Einsetzen des Ultimativen Angriff.
-	 * Bei zu wenig KI wird Ki-Load Befehl ausgeführt
+	 * Bei zu wenig KI wird Ki-Load Befehl ausgefï¿½hrt
 	 * 
 	 * 
 	 * Autoablauf:
@@ -318,7 +315,7 @@ public abstract class FighterKIMoves extends KIMethodes{
 	
 	/**
 	 * Befehl zum Einsetzen des Special Angriff.
-	 * Bei zu wenig KI wird Ki-Load Befehl ausgeführt
+	 * Bei zu wenig KI wird Ki-Load Befehl ausgefï¿½hrt
 	 * 
 	 * 
 	 * Autoablauf:
@@ -347,7 +344,7 @@ public abstract class FighterKIMoves extends KIMethodes{
 	 * 
 	 * 
 	 * Autoablauf:
-	 * Wenn kein Gegner in der Nähe ist,
+	 * Wenn kein Gegner in der Nï¿½he ist,
 	 * wird newRandomMove() aufgerufen
 	 */
 	protected  void wantBlock() {
@@ -365,11 +362,11 @@ public abstract class FighterKIMoves extends KIMethodes{
 
 
 	/**
-	 * Befehl zum Flüchten
+	 * Befehl zum Flï¿½chten
 	 * 
 	 * 
 	 * Autoablauf:
-	 * Wenn kein Gegner in der Nähe ist,
+	 * Wenn kein Gegner in der Nï¿½he ist,
 	 * wird newRandomMove() aufgerufen
 	 */
 	protected void wantEscape()
@@ -415,7 +412,7 @@ public abstract class FighterKIMoves extends KIMethodes{
 	 * Wenn Gegner zu weit entfernt ist,
 	 * wird bewegeZuGegner() augerufen
 	 * Wenn in Gegner steht, wird eine
-	 * FLuchtaktion ausgeführt
+	 * FLuchtaktion ausgefï¿½hrt
 	 * 
 	 */
 	protected void wantAttack()
@@ -441,7 +438,7 @@ public abstract class FighterKIMoves extends KIMethodes{
 	}
 	
 	/**
-	 * Neue zufällige Aktion
+	 * Neue zufï¿½llige Aktion
 	 */
 	protected  void newRandomMove() {
 		doAktion=getAktion();
@@ -451,12 +448,12 @@ public abstract class FighterKIMoves extends KIMethodes{
 	
 	/**
 	 * Meist wenn Gegner zu Nahe sind,
-	 * führt zufällig nach Stellenwert zu
+	 * fï¿½hrt zufï¿½llig nach Stellenwert zu
 	 * folgenden 3 verschiedenen Reaktionen:
 	 * 
 	 * -Angreifen
 	 * -Verteidigen
-	 * -Flüchten
+	 * -Flï¿½chten
 	 */
 	protected void attackEscapeOrBlock()
 	{
@@ -482,8 +479,8 @@ public abstract class FighterKIMoves extends KIMethodes{
 	
 	
 	/**
-	 * Gibt nächste Aktion-ID zurück,
-	 * abhängig vom Stellenwert
+	 * Gibt nï¿½chste Aktion-ID zurï¿½ck,
+	 * abhï¿½ngig vom Stellenwert
 	 */
 	protected int getAktion()
 	{

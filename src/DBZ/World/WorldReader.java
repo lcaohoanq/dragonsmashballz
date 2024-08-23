@@ -1,11 +1,8 @@
 package DBZ.World;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.URL;
 
 
 public class WorldReader {
@@ -27,7 +24,7 @@ public class WorldReader {
 		 	String zeile=""; //Lesestrings
 
 		 	 
-		 StringBuffer m=new StringBuffer("");
+		 StringBuffer m=new StringBuffer();
 				try {
 					 BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream("DBZ/Ressourcen/World"+(i+1)+".txt")));//Textdatei mit Name name einlesen			 		   
 				    while((zeile = reader.readLine())!= null){

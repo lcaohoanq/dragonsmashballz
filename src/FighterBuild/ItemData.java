@@ -6,7 +6,7 @@ public class ItemData {
 
 	
 	
-	private ArrayList <Item> items=new ArrayList<Item>();
+	private final ArrayList <Item> items=new ArrayList<Item>();
 	
 	public ItemData()
 	{

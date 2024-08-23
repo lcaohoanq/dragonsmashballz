@@ -4,9 +4,9 @@ public class DialogAktion {
 	
 	public final static int MAKEMOVE=0,CHANGEID=1,PLAYSOUND=2,PLAYFIGHTERSOUND=3,KILLFIGHTER=4,EINFLIEGEN=5;
 	
-	private int fighter;
-	private int aktion;
-	private int value;
+	private final int fighter;
+	private final int aktion;
+	private final int value;
 
 	public DialogAktion(int fighter,int aktion, int value)
 	{

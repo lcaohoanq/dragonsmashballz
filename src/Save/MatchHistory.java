@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class MatchHistory implements Serializable {
 
 	
-	private ArrayList<HistoryFight> fights=new ArrayList<HistoryFight>();
+	private final ArrayList<HistoryFight> fights=new ArrayList<HistoryFight>();
 	
 	public MatchHistory()
 	{

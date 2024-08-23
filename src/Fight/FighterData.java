@@ -1,18 +1,14 @@
 package Fight;
 
-import java.util.ArrayList;
-
-import Battle.Attack;
-import Battle.Battle;
 import DBZ.Main;
 
 
 
 public class FighterData {
 
-	private int[][] power=new int[Main.fighteranz][6];
-	private static int[] dform=new int[Main.fighteranz];
-	private int[] maxpower=new int[6];
+	private final int[][] power=new int[Main.fighteranz][6];
+	private static final int[] dform=new int[Main.fighteranz];
+	private final int[] maxpower=new int[6];
 	
 	public static int SHIELD=200;
 	public static final float KOTIME = 150;
@@ -614,7 +610,7 @@ public class FighterData {
 		int maxki=getMaxKi2();
 		double faktor=0.97;
 		kiw[1]=(int)(maxki*faktor);
-		kiw[2]=(int) (maxki/2); 
+		kiw[2]= maxki/2;
 		kiw[3]=(int) (getMaxKi()*0.3);
 		switch(id)
 		{
@@ -770,7 +766,7 @@ public class FighterData {
 		}
 		
 		
-		int i[]=new int[2];
+		int[] i =new int[2];
 		if(truespecial)
 		{
 			i[0]=((x1)*2);
@@ -869,14 +865,7 @@ public class FighterData {
 	
 	public  static boolean canTransform(int id)
 	{
-		if(dform[id]>0)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+        return dform[id] > 0;
 			
 	}
 	

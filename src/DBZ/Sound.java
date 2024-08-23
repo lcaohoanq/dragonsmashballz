@@ -1,30 +1,23 @@
 package DBZ;
 
 
-
+import Fight.FighterData;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
-
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.sound.sampled.FloatControl;
-
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-
 import org.newdawn.easyogg.OggClip;
-
-import Fight.FighterData;
 
 
 public class Sound {
 
-	Clip sounds[]=new Clip[30]; //Anzahl Sounds 
-	Clip fighters[][];//Fighter Sounds
+	Clip[] sounds =new Clip[30]; //Anzahl Sounds
+	Clip[][] fighters;//Fighter Sounds
 	ArrayList<OggClip> music=new ArrayList<OggClip>();
 	
 	private boolean playMusic=true,playSounds=true;
@@ -105,7 +98,7 @@ public class Sound {
 	   {
 		   Main.settings.switchPlayMusic();
 		   playMusic=Main.settings.playMusic();
-		   if(playMusic==false)
+		   if(!playMusic)
 		   {
 			   stopMusic();
 		   }
@@ -119,7 +112,7 @@ public class Sound {
 	   {
 		   Main.settings.switchPlaySound();
 		   playSounds=Main.settings.playSound();
-		   if(playSounds==false)
+		   if(!playSounds)
 		   {
 			   killSounds();
 		   }
@@ -129,7 +122,7 @@ public class Sound {
 	   {
 		   if(playSounds)
 		   {
-			   if(sounds[12].isRunning()==false)
+			   if(!sounds[12].isRunning())
 			   {
 				   sounds[12].start();
 			   }
@@ -229,7 +222,7 @@ public class Sound {
 	
 	private Clip[][] loadFighterSounds()
 	{
-		Clip sounds[][]=new Clip[Main.fighteranz][11];
+		Clip[][] sounds =new Clip[Main.fighteranz][11];
 		for(int i=0; i<Main.fighteranz; i++)
 		{
 			String ordner="";

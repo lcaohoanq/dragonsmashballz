@@ -1,18 +1,20 @@
 package Battle;
 
 
+import DBZ.Main;
 import java.awt.Color;
 import java.awt.Graphics;
-
-import DBZ.Main;
 
 
 public class BloodSplatter {
 
-	private int x,y,time,design;
+	private final int x;
+    private final int y;
+    private int time;
+    private final int design;
 	private boolean end=false;
 	private double winkel=0;
-	private double blood[][]=new double[20][6];
+	private final double[][] blood =new double[20][6];
 	/*
 	 * 0=x
 	 * 1=y
@@ -35,7 +37,7 @@ public class BloodSplatter {
 	
 	public void paint(Graphics g)
 	{
-		if(end==false)
+		if(!end)
 		{
 	   
 		if(time<20)

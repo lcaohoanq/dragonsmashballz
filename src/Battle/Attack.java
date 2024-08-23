@@ -1,13 +1,11 @@
 package Battle;
 
 
+import DBZ.Form;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
-
-import DBZ.Form;
-import DBZ.Main;
 
 
 public abstract class Attack extends Form{
@@ -206,7 +204,7 @@ public abstract class Attack extends Form{
 	protected double[] getMovement(double x1, double y1, double x2, double y2)
 	{				
 		double w=Math.atan2((y2-y1),(x2-x1));	
-		double speed[]=new double[2];
+		double[] speed =new double[2];
 		speed[0]=Math.cos(w);
 		speed[1]=Math.sin(w);		
 		return speed;

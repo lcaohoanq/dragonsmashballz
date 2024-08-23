@@ -1,27 +1,25 @@
 package Battle;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-
 import DBZ.Main;
 import Images.GameImages;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
 
 
 public class SpecialEffect {
 
-	private int mp=20;
-	private boolean[] special=new boolean[mp];
+	private final int mp=20;
+	private final boolean[] special=new boolean[mp];
 	
-	private int[][] srcpos=new int[mp][2];
-	private int[][] hitpos=new int[mp][2];
+	private final int[][] srcpos=new int[mp][2];
+	private final int[][] hitpos=new int[mp][2];
 	
-	private int[] wave;
-	private int[] winkel;
-   private int winkelplus=5;
+	private final int[] wave;
+	private final int[] winkel;
+   private final int winkelplus=5;
 	
-	private Font font=new Font("Arial",1,30);
+	private final Font font=new Font("Arial",1,30);
    
 	public SpecialEffect()
 	{

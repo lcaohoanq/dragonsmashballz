@@ -1,21 +1,18 @@
 package Misc;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.ArrayList;
-
 import DBZ.Main;
 import DBZ.Sound;
 import Images.GameImages;
 import Menu.FighterSelection;
 import Save.Profil;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class Credits {
 
@@ -24,8 +21,8 @@ public class Credits {
 	
 	private  ArrayList<String> credits=new ArrayList<String>();
 	private  ArrayList<Integer> info=new ArrayList<Integer>();
-	private Font fontsmall=new Font("Arial",1,25);
-	private Font fontbig=new Font("Arial",Font.BOLD,50);
+	private final Font fontsmall=new Font("Arial",1,25);
+	private final Font fontbig=new Font("Arial",Font.BOLD,50);
 	
 	public Credits()
 	{
@@ -42,7 +39,7 @@ public class Credits {
 						   while((zeile = reader.readLine())!= null){
 				    	if(zeile.length()>0)
 				    	{
-				    	if( zeile.substring(0, 2).equals("b."))
+				    	if( zeile.startsWith("b."))
 				    	{
 				    		zeile=zeile.substring(2);
 				    		info.add(1); 

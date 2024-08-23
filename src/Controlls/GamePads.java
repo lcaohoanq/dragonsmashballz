@@ -1,14 +1,13 @@
 package Controlls;
 
 import java.util.ArrayList;
-
 import net.java.games.input.Controller;
 import net.java.games.input.ControllerEnvironment;
 
 public class GamePads {
 
 	
-	private ArrayList<GamePad> gamepads=new ArrayList<GamePad>();
+	private final ArrayList<GamePad> gamepads=new ArrayList<GamePad>();
 	
 	
 	public GamePads()

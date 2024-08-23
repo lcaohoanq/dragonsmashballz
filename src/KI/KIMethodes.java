@@ -22,7 +22,7 @@ public abstract class KIMethodes {
      
      
  	/**
- 	 *  MoveID für Blitzaufladung Aktion
+ 	 *  MoveID fï¿½r Blitzaufladung Aktion
  	 */
 		protected void einsetzenPowerLoad() {
 			playerAktion=20;
@@ -32,16 +32,14 @@ public abstract class KIMethodes {
 
 		
 		/**
-	 	 * Prüft ob genug Ki für die entsprechende Aktion 
-	 	 * zur Verfügung steht
+	 	 * Prï¿½ft ob genug Ki fï¿½r die entsprechende Aktion 
+	 	 * zur Verfï¿½gung steht
 	 	 */
 		  protected boolean genugKI(int fuer)
 		  {
-			  boolean ok=false;
-				  if(f.getAttributes()[3]-50>=FighterData.getKiWastage(f.getAttributes()[0])[fuer]){				  
-					  ok=true;
-				  }
-			  return ok;
+			  boolean ok=
+                  f.getAttributes()[3] - 50 >= FighterData.getKiWastage(f.getAttributes()[0])[fuer];
+              return ok;
 		  }
 		  /**
 		 	 * MoveID zum Bewegen zu Gegner
@@ -117,7 +115,7 @@ public abstract class KIMethodes {
 		    
 		    
 		    /**
-		 	 *  Gibt den Abstand zwischen Kämpfer und Ziel
+		 	 *  Gibt den Abstand zwischen Kï¿½mpfer und Ziel
 		 	 */
 		    protected int gegnerAbstand()
 		    {
@@ -133,9 +131,9 @@ public abstract class KIMethodes {
 			}
 
 			/**
-		 	 *  MoveID für Ki Angriff
+		 	 *  MoveID fï¿½r Ki Angriff
 		 	 *   Dreht Spieler automatisch in die richtige Richtung zum Ziel
-		 	 *   und prüft gleiche Höhe zum abfeuern
+		 	 *   und prï¿½ft gleiche Hï¿½he zum abfeuern
 		 	 */
 			protected void einsetzenKIAttack() {
 				if(stehtVerkehrt())
@@ -155,11 +153,11 @@ public abstract class KIMethodes {
 			}
 		    
 			/**
-		 	 *  MoveID für SpecialAngriff
+		 	 *  MoveID fï¿½r SpecialAngriff
 		 	 *  .true = Ultimativer Angriff
 		 	 *  .false = Special Angriff
 		 	 *  
-		 	 *  Prüft auf richtige Richtung und gleiche Höhe mit Gegner
+		 	 *  Prï¿½ft auf richtige Richtung und gleiche Hï¿½he mit Gegner
 		 	 */
 			protected void einsetzenSpecial(boolean b) {
 				
@@ -197,8 +195,8 @@ public abstract class KIMethodes {
 			
 			
 			/**
-		 	 *  Prüft ob die X-Entfernung zum gegner innerhalb
-		 	 *  der Specialfähigkeitsreichweite liegt.
+		 	 *  Prï¿½ft ob die X-Entfernung zum gegner innerhalb
+		 	 *  der Specialfï¿½higkeitsreichweite liegt.
 		 	 *  .true = Ultimativer Angriff
 		 	 *  .false = Special Angriff
 		 	 */
@@ -214,21 +212,14 @@ public abstract class KIMethodes {
 				{
 					a=this.specialrange;
 				}
-				
-				if(this.gegnerXAbstand()<=a)
-				{
-				return true;	
-				}
-				else
-				{
-					return false;
-				}
+
+                return this.gegnerXAbstand() <= a;
 			
 			}
 		    
 		
 			/**
-		 	 *  MoveID für Entwicklung
+		 	 *  MoveID fï¿½r Entwicklung
 		 	 */
             protected void evolve()
             {
@@ -236,7 +227,7 @@ public abstract class KIMethodes {
             }
             
             /**
-         	 *  MoveID für Blocken, dreht Spieler automatisch in die richtige Richtung
+         	 *  MoveID fï¿½r Blocken, dreht Spieler automatisch in die richtige Richtung
          	 */
 			protected void blocken() {
 				
@@ -251,7 +242,7 @@ public abstract class KIMethodes {
 			}
 		    
 			/**
-		 	 *  MoveID für Angriff, prüft auf richtige Richtung und 
+		 	 *  MoveID fï¿½r Angriff, prï¿½ft auf richtige Richtung und 
 		 	 *  auf Oben, Mitte, Unten Schlag
 		 	 */
 		    protected void angreifen()
@@ -279,7 +270,7 @@ public abstract class KIMethodes {
 		    }
 		    
 		    /**
-		 	 *  Befehl zum bewegen auf die gleiche Höhe zum Gegner
+		 	 *  Befehl zum bewegen auf die gleiche Hï¿½he zum Gegner
 		 	 */
 		    protected void bewegenAufGleicheHoehe()
 		    {
@@ -301,7 +292,7 @@ public abstract class KIMethodes {
 		   
 		 
 		    /**
-		 	 *  Prüft ob auf gleicher Höhe mit Gegner ist
+		 	 *  Prï¿½ft ob auf gleicher Hï¿½he mit Gegner ist
 		 	 */
 		 protected boolean gleicheHoehe()
 		    {
@@ -316,14 +307,14 @@ public abstract class KIMethodes {
 		    }
 		    
 		 /**
-		 	 *  Prüft ob Spieler verkehrt zum Gegner steht
+		 	 *  Prï¿½ft ob Spieler verkehrt zum Gegner steht
 		 	 */
     protected boolean stehtVerkehrt()
     {
     	boolean verkehrt=true;
     	
     	if(x1<x2){
-    		if(f.isLeft()==false)
+    		if(!f.isLeft())
     		{
     			verkehrt=false;
     		}

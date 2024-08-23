@@ -1,10 +1,5 @@
 package Tournament;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.util.ArrayList;
-import java.util.Random;
-
 import DBZ.Main;
 import DBZ.PlayerControl;
 import Fight.Fight;
@@ -12,17 +7,19 @@ import Fight.FighterData;
 import Images.GameImages;
 import Misc.ZeniScreen;
 import Stages.StageTournament;
+import java.awt.Graphics;
+import java.util.ArrayList;
 
 public class TournamentWorld extends TournamentGame {
 
 	
-	private int anz=16;
-	private KoSystemPanel panel=new KoSystemPanel(16,30,60,20,400);
+	private final int anz=16;
+	private final KoSystemPanel panel=new KoSystemPanel(16,30,60,20,400);
 	
-	private int[] fighter=new int[anz];
-	private int[] fround=new int[anz]; 
-	private int[] fplatz=new int[anz]; 
-	private int[] spieler=new int[anz]; 
+	private final int[] fighter=new int[anz];
+	private final int[] fround=new int[anz];
+	private final int[] fplatz=new int[anz];
+	private final int[] spieler=new int[anz];
     
 	private int maxround=8,cfight=0;
 	private int fighter1,fighter2;
@@ -53,7 +50,7 @@ public class TournamentWorld extends TournamentGame {
 	   					break;
 	   				}
 	   			}
-	   			}while(fertig==false);
+	   			}while(!fertig);
 	   		}
 	   		fround[i]=1;	
 	   		fplatz[i]=i+1;
@@ -215,7 +212,7 @@ public class TournamentWorld extends TournamentGame {
 			}
 		}
 
-	if(geld==false)
+	if(!geld)
 	{
 		geld=true;
 		if(sp==1)

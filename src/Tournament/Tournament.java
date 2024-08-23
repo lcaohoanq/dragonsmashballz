@@ -1,28 +1,24 @@
 package Tournament;
 
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.util.ArrayList;
-
-import DBZ.Main;
 import DBZ.PlayerControl;
 import Fight.Fight;
 import Fight.Fighter;
 import Fight.FighterData;
 import Images.GameImages;
-
 import Misc.ZeniScreen;
 import Stages.Stage;
 import Stages.StageCell;
 import Stages.StageCity;
-import Stages.StageCityDestroyed;
 import Stages.StageKame;
 import Stages.StageLookout;
 import Stages.StageNamek;
 import Stages.StagePlain;
 import Stages.StageSpace;
 import Stages.StageTimeChamber;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.util.ArrayList;
 
 
 public class Tournament extends TournamentGame{
@@ -31,10 +27,10 @@ public class Tournament extends TournamentGame{
 
 	FighterData fdata=new FighterData();
 	//Enemies
-	private Fighter[] fighter=new Fighter[8];
+	private final Fighter[] fighter=new Fighter[8];
 	//Stages
-	private Stage[] stages={new StageKame(),new StagePlain(),new StageLookout(),new StageCity(),new StageNamek(),new StageCell(),new StageTimeChamber(),new StageSpace()};
-	private String[] battle=new String[fighter.length];
+	private final Stage[] stages={new StageKame(),new StagePlain(),new StageLookout(),new StageCity(),new StageNamek(),new StageCell(),new StageTimeChamber(),new StageSpace()};
+	private final String[] battle=new String[fighter.length];
  
 	
 	public Tournament()
@@ -68,7 +64,7 @@ public class Tournament extends TournamentGame{
 			fighter[i]=new Fighter();
 			int id=getFighterFromList(i);
 		
-			battle[i]="Stage "+(i+1)+": VS "+fdata.getName(id);
+			battle[i]="Stage "+(i+1)+": VS "+ FighterData.getName(id);
 			fighter[i].init(id, 1,false);
 			fighter[i].setPos(150, 350);
 			
@@ -176,7 +172,7 @@ public class Tournament extends TournamentGame{
 	
 	public void paint(Graphics g)
 	{
-		g.drawImage(GameImages.menuback,0,0,(int)(1000),(int)(600),null);
+		g.drawImage(GameImages.menuback,0,0, 1000, 600,null);
 		
 		
 		if(finishscreen>0)
@@ -248,7 +244,8 @@ public class Tournament extends TournamentGame{
 		if(round<fighter.length)
 		{
 		
-		g.drawImage(GameImages.stages[stages[round].getID()+1], (int)(50),(int)(300),(int)(200),(int)(120),null);
+		g.drawImage(GameImages.stages[stages[round].getID()+1], 50, 300, 200,
+            120,null);
 	 
 		 fighter[round].makeMove(0);
 		 fighter[round].paint(g);	

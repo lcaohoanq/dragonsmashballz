@@ -1,11 +1,6 @@
 package Fight;
 
 
-
-
-import java.awt.Dimension;
-import java.awt.Graphics;
-
 import Battle.Attack;
 import Battle.Battle;
 import Battle.Blood;
@@ -17,16 +12,15 @@ import DBZ.Animation;
 import DBZ.Form;
 import DBZ.Main;
 import DBZ.PlayerControl;
-
 import FighterBuild.Effect;
 import FighterBuild.Item;
 import FighterBuild.UseItem;
-
-import java.util.ArrayList;
 import Images.GameImages;
 import KI.FighterKI;
-import KI.HeavyKI;
 import Menu.HUD;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.util.ArrayList;
 
 
 
@@ -59,7 +53,7 @@ public class Fighter extends Form{
 	private double specialplus=1;
 	private int gepumpt=0;
 	private int spielerid=0;
-	private Dimension dim=new Dimension(200,200);
+	private final Dimension dim=new Dimension(200,200);
 	private boolean immortal=false,transformpumpen=false;
 	
 	private FighterKI comp;
@@ -90,13 +84,13 @@ public class Fighter extends Form{
 
 	//Move
 	
-	private FighterSpecials specials=new FighterSpecials();
+	private final FighterSpecials specials=new FighterSpecials();
 	private int pid=0; //picture-id
 	private boolean left=false; //Direction
 	private boolean specialattack=false; //
 	private boolean usespecial=false;
-	private Animation animation=new Animation();//Animations Timer
-	private FighterData data=new FighterData();
+	private final Animation animation=new Animation();//Animations Timer
+	private final FighterData data=new FighterData();
 	private float heal=0;
 	private boolean floorMap=true;
 	
@@ -111,7 +105,7 @@ public class Fighter extends Form{
 	
 	private int specialfightertime=0;
 	
-	private boolean useItems=false;
+	private final boolean useItems=false;
 	
 	public Fighter()
 	{
@@ -238,14 +232,14 @@ public class Fighter extends Form{
 	
 	public void hit(Damage d, int x, int y)
 	{
-		if(invisible==false)
+		if(!invisible)
 		{
 		//dir == Richtung des Angriffs
 		//damage= Schaden am Spieler				
 		//move
 		
 		controllable=false;
-		if(atts[0]==FighterData.DRGERO&&secondspecial&&d.physical==false)
+		if(atts[0]==FighterData.DRGERO&&secondspecial&& !d.physical)
 		{
 			atts[1]+=d.damage/2;
 			if(atts[1]>atts[2])
@@ -268,7 +262,7 @@ public class Fighter extends Form{
 		{
 			
 			Main.sound.playHurtSound(atts[0]);
-			if(specialattack==false)
+			if(!specialattack)
 			{
 			speed[0]=d.dirx/5;
 			speed[1]=d.diry/5;
@@ -296,11 +290,11 @@ public class Fighter extends Form{
 		boolean b=false;
 		if(blocking)
 		{
-			if(left==true&&x<pos[0])
+			if(left &&x<pos[0])
 			{
 				b=true;
 			}
-			else if(left==false&&x>pos[0])
+			else if(!left &&x>pos[0])
 			{
 				b=true;
 			}
@@ -353,7 +347,7 @@ public class Fighter extends Form{
 	    }
 	    
 		boolean b=false;
-		if(immortal==false)
+		if(!immortal)
 		{
 		atts[1]-=schaden;
 		   
@@ -370,7 +364,7 @@ public class Fighter extends Form{
 		}
 		
 		HUD.damageCounter(d.absender,spielerid, schaden,b);
-		if(atts[1]<-200&&invisible==false)
+		if(atts[1]<-200&& !invisible)
 		{
 			invisible=true;
 			
@@ -386,7 +380,7 @@ public class Fighter extends Form{
 			pos[1]=-500;
 		}
 		
-		if(invisible==false){
+		if(!invisible){
 			
 			int anz=schaden/10+1;
 			for(int i=0; i<anz; i++)
@@ -404,7 +398,7 @@ public class Fighter extends Form{
 		animation.newAnimation(1000000, 25, 25);
 	
 	
-		if(alife==true)
+		if(alife)
 		{
 			speed[1]=3;	
 			Main.sound.stopLoadingSound(atts[0]);
@@ -470,7 +464,7 @@ public class Fighter extends Form{
 	}
 	
 	public void makeNoMove() {
-	if(doneMove==false)
+	if(!doneMove)
 	{
 		noMovement();
 		Main.sound.stopLoadingSound(atts[0]);
@@ -509,7 +503,8 @@ public class Fighter extends Form{
 		case 18: spezialAttack(true); break; //Special Attack
 		case 19: spezialAttack(false); break; //Second Special Attack
 		case 20: pumpen(); break;
-		case 21: if(canTransform()) {transform();}else{loadKi(); move=15;}; break; 
+		case 21: if(canTransform()) {transform();}else{loadKi(); move=15;}
+            break;
 	//	case 22: powerup();  break;
 		case 22: noMovement(); break;
 		}
@@ -547,7 +542,7 @@ public class Fighter extends Form{
 		boolean t=false;
 		if(cantransform)
 		{
-		if(data.canTransform(atts[0])) 
+		if(FighterData.canTransform(atts[0]))
 		{
 		if(controllable&&pumpen==0)
 		{
@@ -563,7 +558,7 @@ public class Fighter extends Form{
 	
 	public boolean haveTransformation()
 	{
-		return data.canTransform(atts[0]);
+		return FighterData.canTransform(atts[0]);
 	}
 	
    private void transform() {
@@ -592,7 +587,7 @@ public class Fighter extends Form{
 		controllable=false;
 		Main.sound.stopLoadingSound(atts[0]);
 		int leben=atts[1];
-	    changeFighterId(data.getTransformForm(atts[0]));
+	    changeFighterId(FighterData.getTransformForm(atts[0]));
 	    atts[3]=100;
 	    leben=(int) (leben*1.7);
 	    atts[1]=leben;
@@ -638,7 +633,7 @@ private int pumpen;
 	{
 		if(controllable)
 		{	
-			if(animation.isRunning()==false)
+			if(!animation.isRunning())
 			   {
 			
 		
@@ -781,7 +776,7 @@ private int pumpen;
 		{
 				
 			
-		   if(animation.isRunning()==false)
+		   if(!animation.isRunning())
 		   {
 			   
 			  
@@ -846,7 +841,7 @@ private int pumpen;
 		{
 			speed[0]=0;
 			speed[1]=0;
-		   if(isCyborg==false)
+		   if(!isCyborg)
 		   {
 			   
 		
@@ -996,7 +991,7 @@ private int pumpen;
 		else
 		{//Sometimes Teleport there
 			
-			if(alife&&usespecial==false)
+			if(alife&& !usespecial)
 			{
 				int xp=0,yp=0;
 				switch(direction)
@@ -1053,7 +1048,7 @@ private int pumpen;
 				case 5 : pid2=11; break;				
 				}
 		
-			  if(animation.isRunning()==false)
+			  if(!animation.isRunning())
 			   {
 				  if(schlagPause>0)
 					{
@@ -1177,7 +1172,7 @@ private int pumpen;
 		else if(shielddamage<0)
 		{
 			shielddamage++;
-			if(this.usespecial==false)
+			if(!this.usespecial)
 			{
 				speed[0]=0;
 				speed[1]=0;
@@ -1210,7 +1205,7 @@ private int pumpen;
 			}
 		}
 		bewegung=false;
-		if(einfliegen==false)
+		if(!einfliegen)
 		{
 		if(stuntime>0&&alife)
 		{
@@ -1245,7 +1240,7 @@ private int pumpen;
 	
 			usespecial=false;
 			
-			if(invisible==false)
+			if(!invisible)
 
 			{
 				if(pos[0]<50)
@@ -1306,7 +1301,7 @@ private int pumpen;
 		}
 		
 		
-		if(alife==true)
+		if(alife)
 		{
 			
 		if(pos[1]>=mapborders.height-150)
@@ -1322,7 +1317,7 @@ private int pumpen;
 		
 		
 		
-		if(floorMap ==false)
+		if(!floorMap)
 		{
 			flying=true;
 		}
@@ -1350,15 +1345,8 @@ private int pumpen;
 		{
 			speed[1]+=0.2;
 		}
-	
-		if(pos[1]==mapborders.height-120&&speed[1]==0)
-		{
-			bewegung=false;
-		}
-		else
-		{
-			bewegung=true;
-		}
+
+                bewegung= pos[1] != mapborders.height - 120 || speed[1] != 0;
 			}
 			else
 			{
@@ -1385,11 +1373,15 @@ private int pumpen;
 					if(left)
 					{
 						
-						g.drawImage(GameImages.specialfighter[0][pid],(int)((pos[0]-dim.width/2+dim.width)),(int)((pos[1]-dim.height/2)),(int)(-dim.width),(int)(dim.height),null);	    			 
+						g.drawImage(GameImages.specialfighter[0][pid],(int)((pos[0]-dim.width/2+dim.width)),(int)((pos[1]-dim.height/2)),
+                            -dim.width,
+                            dim.height,null);
 					}
 					else
 					{
-						g.drawImage(GameImages.specialfighter[0][pid],(int)((pos[0]-dim.width/2)),(int)((pos[1]-dim.height/2)),(int)(dim.width),(int)(dim.height),null);	    			 
+						g.drawImage(GameImages.specialfighter[0][pid],(int)((pos[0]-dim.width/2)),(int)((pos[1]-dim.height/2)),
+                            dim.width,
+                            dim.height,null);
 					}
 				}
 				else
@@ -1397,11 +1389,15 @@ private int pumpen;
 		if(left)
 		{
 			
-			g.drawImage(GameImages.fighter[atts[0]][pid],(int)((pos[0]-dim.width/2+dim.width)),(int)((pos[1]-dim.height/2)),(int)(-dim.width),(int)(dim.height),null);	    			 
+			g.drawImage(GameImages.fighter[atts[0]][pid],(int)((pos[0]-dim.width/2+dim.width)),(int)((pos[1]-dim.height/2)),
+                -dim.width,
+                dim.height,null);
 		}
 		else
 		{
-			g.drawImage(GameImages.fighter[atts[0]][pid],(int)((pos[0]-dim.width/2)),(int)((pos[1]-dim.height/2)),(int)(dim.width),(int)(dim.height),null);	    			 
+			g.drawImage(GameImages.fighter[atts[0]][pid],(int)((pos[0]-dim.width/2)),(int)((pos[1]-dim.height/2)),
+                dim.width,
+                dim.height,null);
 		}
 				}
 			}
@@ -1412,7 +1408,9 @@ private int pumpen;
 			if(auraz>0)
 			{
 				
-					g.drawImage(GameImages.aura[aura],(int)((pos[0]-dim.width/2)),(int)((pos[1]-dim.height/2)),(int)(dim.width),(int)(dim.height),null);	    			 
+					g.drawImage(GameImages.aura[aura],(int)((pos[0]-dim.width/2)),(int)((pos[1]-dim.height/2)),
+                        dim.width,
+                        dim.height,null);
 					auraz--;
 				
 			}
@@ -1453,7 +1451,7 @@ private int pumpen;
 				}
 				else
 				{
-				//Special Verstärken
+				//Special Verstï¿½rken
 				specialplus+=0.2;
 				gepumpt++;
 				}
@@ -1466,7 +1464,7 @@ private int pumpen;
         	{
         		//regenerate
         		
-        		if(usespecial==false)
+        		if(!usespecial)
         		{
         			
         		
@@ -1514,21 +1512,14 @@ private int pumpen;
 	
 	public boolean enoughKIfor(int nr)
 	{
-		if(atts[3]>=kiwastage[nr])
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+        return atts[3] >= kiwastage[nr];
 	}
 	
 	
 	
 	public void usesSpecial()
 	{
-		if(alife==true)
+		if(alife)
 		{
 		speed[0]=0;
 		speed[1]=0;
@@ -1603,14 +1594,7 @@ private int pumpen;
 	
 	public boolean isComputer()
 	{
-		if(comp!=null)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+        return comp != null;
 	}
 	
 	public void makeComputerMove(Fighter f,Attack[] a)
@@ -1744,11 +1728,11 @@ private int pumpen;
 		if(left)
 		{
 			
-			g.drawImage(GameImages.fighter[atts[0]][2],x+dim.width,y,(int)(-dim.width),(int)(dim.height),null);	    			 
+			g.drawImage(GameImages.fighter[atts[0]][2],x+dim.width,y, -dim.width, dim.height,null);
 		}
 		else
 		{
-			g.drawImage(GameImages.fighter[atts[0]][2],x,y,(int)(dim.width),(int)(dim.height),null);	    			 
+			g.drawImage(GameImages.fighter[atts[0]][2],x,y, dim.width, dim.height,null);
 		}
 		bewegung=true;
 		
@@ -1787,14 +1771,7 @@ private int pumpen;
 	
 	public boolean amBoden()
 	{
-		if(amboden>100)
-		{
-		return true;
-		}
-		else
-		{
-			return false;
-		}
+        return amboden > 100;
 	}
 
 

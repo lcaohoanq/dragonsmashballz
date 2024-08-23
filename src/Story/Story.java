@@ -1,19 +1,17 @@
 package Story;
 
-import java.util.ArrayList;
-
 import Fight.Fighter;
 import Fight.FighterData;
-import Menu.Menu;
 import Stages.Stage;
 import Stages.StageCity;
-import Stages.StageMountain;
 import Stages.StageKame;
 import Stages.StageLabor;
+import Stages.StageMountain;
 import Stages.StageNamek;
 import Stages.StageNamekDestroyed;
 import Stages.StagePlain;
 import Stages.StageTournament;
+import java.util.ArrayList;
 
 public class Story {
 

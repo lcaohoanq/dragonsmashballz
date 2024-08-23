@@ -1,11 +1,10 @@
 package Battle;
 
 
-import java.awt.Graphics;
-import java.awt.Rectangle;
-
 import DBZ.Main;
 import Images.GameImages;
+import java.awt.Graphics;
+import java.awt.Rectangle;
 
 
 public class KiBeam extends Attack {
@@ -51,7 +50,8 @@ public class KiBeam extends Attack {
                if(x2%3==0)
                {
             	   
-            	   Battle.newExplosion(new Explosion((int)x+(int)(Math.random()*40+1)-20,(int)y+(int)(Math.random()*dim.height+1)-dim.height/2,1));
+            	   Battle.newExplosion(new Explosion(x +(int)(Math.random()*40+1)-20,
+                       y +(int)(Math.random()*dim.height+1)-dim.height/2,1));
 		    return damage;
                }
                else
@@ -71,7 +71,8 @@ public class KiBeam extends Attack {
 				onehit=true;//   attack hit		
 				  if(x2%3==0)
 	               {
-			      	   Battle.newExplosion(new Explosion((int)x+(int)(Math.random()*40+1)-20,(int)y+(int)(Math.random()*dim.height+1)-dim.height/2,1));
+			      	   Battle.newExplosion(new Explosion(x +(int)(Math.random()*40+1)-20,
+                           y +(int)(Math.random()*dim.height+1)-dim.height/2,1));
 			      		
 			    return damage;
 	               }
@@ -103,7 +104,7 @@ public class KiBeam extends Attack {
 		{
 			 x2+=speed[0]/2;
 		}
-	     dim.width=(int) (x2);
+	     dim.width= x2;
 	 	if(dim.width<-1500||dim.width>1500)
 	 	{
 	 		kill=true;
@@ -133,7 +134,8 @@ public class KiBeam extends Attack {
 		{
 			if(Main.PAINT)
 			{
-		g.drawImage(GameImages.effects[apl],(int)(pos[0]),(int)((pos[1]-dim.height/2)),(int)(dim.width),(int)(dim.height),null);
+		g.drawImage(GameImages.effects[apl],(int)(pos[0]),(int)((pos[1]-dim.height/2)), dim.width,
+            dim.height,null);
 			}
 		int beamart=0,beamart2=0;
 		switch(art)
@@ -161,24 +163,31 @@ public class KiBeam extends Attack {
 		{
 		if(speed[0]>0)
 		{
-		g.drawImage(GameImages.effects[beamart],(int)((pos[0]-30)),(int)((pos[1]-dim.height/2)),(int)(70),(int)(dim.height),null);
-		g.drawImage(GameImages.effects[beamart2],(int)((pos[0]+x2-30)),(int)((pos[1]-dim.height/2)),(int)(70),(int)(dim.height),null);
+		g.drawImage(GameImages.effects[beamart],(int)((pos[0]-30)),(int)((pos[1]-dim.height/2)), 70,
+            dim.height,null);
+		g.drawImage(GameImages.effects[beamart2],(int)((pos[0]+x2-30)),(int)((pos[1]-dim.height/2)),
+            70,
+            dim.height,null);
 		}
 		else
 		{
-			g.drawImage(GameImages.effects[beamart],(int)((pos[0]+30)),(int)((pos[1]-dim.height/2)),(int)(-70),(int)(dim.height),null);
-			g.drawImage(GameImages.effects[beamart2],(int)((pos[0]+x2+30)),(int)((pos[1]-dim.height/2)),(int)(-70),(int)(dim.height),null);		
+			g.drawImage(GameImages.effects[beamart],(int)((pos[0]+30)),(int)((pos[1]-dim.height/2)),
+                -70,
+                dim.height,null);
+			g.drawImage(GameImages.effects[beamart2],(int)((pos[0]+x2+30)),(int)((pos[1]-dim.height/2)),
+                -70,
+                dim.height,null);
 		}
 		}
 		
-		if(onehit==true)
+		if(onehit)
 		{
 			if(specialfunktion==Attack.BODYCHANGE)
 			{
 				kill=true;
 				time=40;
 			}
-			if(stopmovement==false)
+			if(!stopmovement)
 			{
 			move(false);
 			}
@@ -186,7 +195,9 @@ public class KiBeam extends Attack {
 			{
 			for(int i=0; i<5; i++)
 			{
-			g.drawImage(GameImages.effects[time/10],(int)((pos[0]+x2-30+(int)(Math.random()*50+1)-25)),(int)((pos[1]-30+(int)(Math.random()*50+1)-25)),(int)(60),(int)(60),null);			
+			g.drawImage(GameImages.effects[time/10],(int)((pos[0]+x2-30+(int)(Math.random()*50+1)-25)),(int)((pos[1]-30+(int)(Math.random()*50+1)-25)),
+                60,
+                60,null);
 			}
 			}
 			time++;
@@ -197,7 +208,7 @@ public class KiBeam extends Attack {
 		}
 		else
 		{
-			if(stopmovement==false)
+			if(!stopmovement)
 			{
 			move(true);
 			}
@@ -238,12 +249,14 @@ public class KiBeam extends Attack {
 		Rectangle rec=null;
 	    if(dim.width<0)
 	    {
-	    	rec=new Rectangle((int)(pos[0]+dim.width),(int)((pos[1]-dim.height/2)),(int)(dim.width*-1),(int)(dim.height));
+	    	rec=new Rectangle((int)(pos[0]+dim.width),(int)((pos[1]-dim.height/2)), dim.width*-1,
+                dim.height);
 	    	
 	    }
 	    else
 	    {
-	    	rec=new Rectangle((int)(pos[0]),(int)((pos[1]-dim.height/2)),(int)(dim.width),(int)(dim.height));
+	    	rec=new Rectangle((int)(pos[0]),(int)((pos[1]-dim.height/2)), dim.width,
+                dim.height);
 	    	
 	    }
 		
@@ -268,7 +281,7 @@ public class KiBeam extends Attack {
 		}
 	
 		x2+=s;	
-		 dim.width=(int) (x2);
+		 dim.width= x2;
 	}
 
 

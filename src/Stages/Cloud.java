@@ -2,14 +2,13 @@ package Stages;
 
 
 import java.awt.Dimension;
-import java.util.Random;
 
 
 public class Cloud {
 
 	private int x,y,id;
 	private boolean left,leftd;
-	private Dimension dim=new Dimension();
+	private final Dimension dim=new Dimension();
 	
 	public Cloud()
 	{
@@ -29,14 +28,7 @@ public class Cloud {
 			left=false;
 			x=-150;
 		}
-		if((int)(Math.random()*2+1)==1)
-		{
-			leftd=true;			
-		}
-		else
-		{
-			leftd=false;
-		}
+        leftd= (int) (Math.random() * 2 + 1) == 1;
 		if(random)
 		{
 		x=(int)(Math.random()*1000+1);

@@ -1,6 +1,12 @@
 package Menu;
 
 
+import DBZ.Main;
+import Fight.Fight;
+import Fight.Fighter;
+import Fight.FighterData;
+import Fight.Team;
+import Images.GameImages;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Font;
@@ -8,16 +14,8 @@ import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
-import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import DBZ.Main;
-import Fight.Fight;
-import Fight.Fighter;
-import Fight.FighterData;
-import Fight.Team;
-import Images.GameImages;
 
 
 
@@ -25,12 +23,12 @@ public class VersusScreen {
 
 	int time;
 	private boolean aktiv=false;
-	private FighterData fdata=new FighterData();
+	private final FighterData fdata=new FighterData();
 	private int size=0;
     private String modus;
 	private Fight fight;
-	private Font font=new Font("Arial",1,40);
-	private Font font2=new Font("Arial",1,30);
+	private final Font font=new Font("Arial",1,40);
+	private final Font font2=new Font("Arial",1,30);
 	
 	private boolean storyFight=false;
 	
@@ -65,7 +63,7 @@ public class VersusScreen {
 		storyFight=false;
 		if(modus.length()>="Story Fight".length())
 		{
-		if(modus.substring(0,"Story Fight".length()).equals("Story Fight"))
+		if(modus.startsWith("Story Fight"))
 		{
 			storyFight=true;
 		}
@@ -167,7 +165,7 @@ public class VersusScreen {
 				Fighter[] f=fight.getFighter();
 				int id1=f[0].getAttributes()[0];
 				int id2=f[1].getAttributes()[0];
-				g.drawImage(GameImages.versusscreen,0,0,(int)(1000),(int)(600),null);
+				g.drawImage(GameImages.versusscreen,0,0, 1000, 600,null);
 				
 				if(time==200)
 				{
@@ -200,16 +198,21 @@ public class VersusScreen {
 			Graphics2D g2d = (Graphics2D) g;
 			  g2d.setComposite(AlphaComposite. getInstance(AlphaComposite.SRC_OVER, 0.2f));
 				
-			g.drawImage(GameImages.effects[54],(int)((500-size/2)),(int)((300-size/2)),(int)(size),(int)(size),null);
+			g.drawImage(GameImages.effects[54], (500-size/2), (300-size/2), size,
+                size,null);
 			g2d.setComposite(AlphaComposite. getInstance(AlphaComposite.SRC_OVER, 1f));
 	
 			
 			g.setColor(new Color(0,0,0));
-			g.fillRect((int)((245-bild/2)),(int)((295-bild/2)),(int)((bild+10)),(int)((bild+10)));
-			g.fillRect((int)((745-bild/2)),(int)((295-bild/2)),(int)((bild+10)),(int)((bild+10)));
+			g.fillRect((245-bild/2), (295-bild/2), (bild+10), (bild+10));
+			g.fillRect((745-bild/2), (295-bild/2), (bild+10), (bild+10));
 			
-				g.drawImage(GameImages.fighterselection[id1+2],(int)((250-bild/2)),(int)((300-bild/2)),(int)(bild),(int)(bild),null);
-				g.drawImage(GameImages.fighterselection[id2+2],(int)((750-bild/2)),(int)((300-bild/2)),(int)(bild),(int)(bild),null);
+				g.drawImage(GameImages.fighterselection[id1+2], (250-bild/2), (300-bild/2),
+                    bild,
+                    bild,null);
+				g.drawImage(GameImages.fighterselection[id2+2], (750-bild/2), (300-bild/2),
+                    bild,
+                    bild,null);
 			
 			if(time==240)
 			{

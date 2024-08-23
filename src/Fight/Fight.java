@@ -1,12 +1,10 @@
 package Fight;
 
-import java.util.ArrayList;
-
-import DBZ.Main;
 import DBZ.PlayerControl;
 import Stages.Stage;
 import Story.Dialog;
 import Story.Zuschauer;
+import java.util.ArrayList;
 
 public class Fight {
 

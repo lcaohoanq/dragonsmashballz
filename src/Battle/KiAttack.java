@@ -1,18 +1,17 @@
 package Battle;
 
 
+import DBZ.Main;
+import Images.GameImages;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.geom.AffineTransform;
 
-import DBZ.Main;
-import Images.GameImages;
-
 
 public class KiAttack extends Attack {
 	
-   private int fullsize;
+   private final int fullsize;
 	
 	public KiAttack(int x, int y, Damage d, float s0, float s1, int design, int size)
 	{
@@ -37,7 +36,7 @@ public class KiAttack extends Attack {
 		attacktyp=1;
 		dim.setSize(size,size);
 		fullsize=size;
-		if(charge==false&&wait<=0)
+		if(!charge &&wait<=0)
 		{
 		Main.sound.fireKiAttackSound();
 		}
@@ -70,9 +69,9 @@ public class KiAttack extends Attack {
 	public Damage crash(int abs,int x, int y, int r2,int blood)
 	{
 		
-		if(inRadius((int)pos[0],x,(int)pos[1],y,dim.width/2+r2)&&onehit==false&&wait<=0&&Main.team.isEnemy(abs, absender))
+		if(inRadius((int)pos[0],x,(int)pos[1],y,dim.width/2+r2)&& !onehit &&wait<=0&&Main.team.isEnemy(abs, absender))
 		{
-			if(bomb==false)
+			if(!bomb)
 			{
 				if(multihit>1)
 				{
@@ -88,7 +87,7 @@ public class KiAttack extends Attack {
 			lasty=y;
 			
 		
-			if(bomb==false)
+			if(!bomb)
 			{
 			if(dim.width>50)
 			{
@@ -175,7 +174,7 @@ public class KiAttack extends Attack {
 				}
 			}
 			
-		if(onehit==false&&bomb==false)
+		if(!onehit && !bomb)
 		{
 			
 			if(iststein){
@@ -203,12 +202,16 @@ public class KiAttack extends Attack {
 			{
 			if(speed[0]<0)
 			{
-			g.drawImage(GameImages.effects[art],(int)((pos[0]-dim.width/2+dim.width)),(int)((pos[1]-dim.height/2)),(int)(-dim.width),(int)(dim.height),null);
+			g.drawImage(GameImages.effects[art],(int)((pos[0]-dim.width/2+dim.width)),(int)((pos[1]-dim.height/2)),
+                -dim.width,
+                dim.height,null);
 			
 			}
 			else
 			{
-			g.drawImage(GameImages.effects[art],(int)((pos[0]-dim.width/2)),(int)((pos[1]-dim.height/2)),(int)(dim.width),(int)(dim.height),null);
+			g.drawImage(GameImages.effects[art],(int)((pos[0]-dim.width/2)),(int)((pos[1]-dim.height/2)),
+                dim.width,
+                dim.height,null);
 			
 			}	
 			}
@@ -226,7 +229,7 @@ public class KiAttack extends Attack {
 				g.drawImage(Main.effects[11],sx-sb/2,sy-sb/2,sb,sb,null);
 			}*/
 			
-			if(stopmovement==false&&charge==false)
+			if(!stopmovement && !charge)
 			{
 			move();
 			
@@ -252,7 +255,7 @@ public class KiAttack extends Attack {
 			wait--;
 			if(wait==0)
 			{
-				if(charge==false)
+				if(!charge)
 				{
 				Main.sound.fireKiAttackSound();
 				}
@@ -269,7 +272,9 @@ public class KiAttack extends Attack {
 
 	@Override
 	public Rectangle getSize() {
-		Rectangle rec=new Rectangle((int)((pos[0]-dim.width/2)),(int)((pos[1]-dim.height/2)),(int)(dim.width),(int)(dim.height));
+		Rectangle rec=new Rectangle((int)((pos[0]-dim.width/2)),(int)((pos[1]-dim.height/2)),
+            dim.width,
+            dim.height);
 		return rec;
 	}
 

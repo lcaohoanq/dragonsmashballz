@@ -5,7 +5,7 @@ import java.awt.Graphics;
 
 public class Blood {
 
-	private static BloodSplatter[] blood=new BloodSplatter[50];
+	private static final BloodSplatter[] blood=new BloodSplatter[50];
 	private static boolean bloodon=true;
 	
 	public Blood()
@@ -45,7 +45,7 @@ public class Blood {
 		{
 			if(blood[i]!=null)
 			{
-				if(blood[i].enden()==false)
+				if(!blood[i].enden())
 				{
 					blood[i].paint(g);
 			

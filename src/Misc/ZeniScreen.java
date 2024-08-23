@@ -1,16 +1,15 @@
 package Misc;
 
+import DBZ.Main;
+import Images.GameImages;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 
-import DBZ.Main;
-import Images.GameImages;
-
 public class ZeniScreen {
 
 	private static int zeni, zdauer,zshow;
-	private static Font font3=new Font("Arial",1,25);
+	private static final Font font3=new Font("Arial",1,25);
 	
 	public static void addZenis(int z)
 	{
@@ -23,14 +22,7 @@ public class ZeniScreen {
 	
 	public static boolean schowZeniScreen()
 	{
-		if(zdauer>0)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+        return zdauer > 0;
 	}
 	
 	public static int paint(Graphics g)

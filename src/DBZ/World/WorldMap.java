@@ -1,22 +1,16 @@
 package DBZ.World;
 
 
+import DBZ.Main;
+import Images.GameImages;
+import Story.Chapter;
+import Story.StoryBattle;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Point;
-import java.awt.geom.AffineTransform;
 import java.util.ArrayList;
-
-
-import DBZ.Main;
-import Fight.Fight;
-import Images.GameImages;
-import Misc.ZeniScreen;
-import Story.Chapter;
-import Story.StoryBattle;
 
 
 
@@ -24,14 +18,14 @@ public class WorldMap {
 
 	
 	private boolean open=true,action=false;
-	private Dragonballs balls=new Dragonballs();
-	private Chara player=new Chara();
-	private Map[] map;
+	private final Dragonballs balls=new Dragonballs();
+	private final Chara player=new Chara();
+	private final Map[] map;
 	private int currentmap=0;
 	private Chapter chapter;
 	private StoryBattle battle;
-	private Font font=new Font("Arial",0,20);
-	private Font fontsmall=new Font("Arial",0,12);
+	private final Font font=new Font("Arial",0,20);
+	private final Font fontsmall=new Font("Arial",0,12);
 	private int wasser,wz;
 	private int schiffwait;
 	
@@ -199,7 +193,7 @@ public class WorldMap {
 			 
 			 if(x+512>=sx&&x+512<=sx+50&&y+288>=sy&&y+288<=sy+50)
 			 {
-				 if(nichtsaktivieren==false)
+				 if(!nichtsaktivieren)
 				 {
 				 nichtsaktivieren=true;
 				 Main.sound.playSound(12, true);
@@ -238,7 +232,7 @@ public class WorldMap {
 					 
 					 if(x+512>=sx&&x+512<=sx+50&&y+288>=sy&&y+288<=sy+50)
 					 {
-						 if(nichtsaktivieren==false)
+						 if(!nichtsaktivieren)
 						 {
 						 Main.sound.playSound(17, true);
 						 action=false;
@@ -305,9 +299,9 @@ public class WorldMap {
 	}
 	
 private boolean updown=false;
-private int icony=0,iconwait=0;;
+private int icony=0,iconwait=0;
 
-	private void paintStoryIcon(Graphics g, int i, String name, int sx, int sy) {
+    private void paintStoryIcon(Graphics g, int i, String name, int sx, int sy) {
 		int x=player.getX();
 		int y=player.getY();
 		g.drawImage(GameImages.worldicons[i],sx-x,sy-y-icony,null);

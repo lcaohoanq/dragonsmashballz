@@ -1,12 +1,11 @@
 package Battle;
 
 
-import java.awt.Dimension;
-import java.awt.Graphics;
-
 import DBZ.Form;
 import DBZ.Main;
 import Images.GameImages;
+import java.awt.Dimension;
+import java.awt.Graphics;
 
 
 public class Explosion extends Form{

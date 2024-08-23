@@ -1,14 +1,12 @@
 package Fight;
 
+import DBZ.PlayerControl;
 import java.awt.Color;
 import java.util.ArrayList;
 
-import DBZ.PlayerControl;
-import Story.Chapter;
-
 public class Team {
 
-	private int[] team;
+	private final int[] team;
 	private PlayerControl[] steuerung;
 	
 	public final static int CTRL_COMP=0,CTRL_P0=1,CTRL_P1=2,CTRL_P2=3;
@@ -62,15 +60,8 @@ public class Team {
 	
 	public boolean isEnemy(int id, int id2)
 	{
-	
-		if(team[id]!=team[id2])
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+
+        return team[id] != team[id2];
 	}
 	
 	public int getTeam(int id)

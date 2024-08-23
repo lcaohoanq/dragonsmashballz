@@ -1,11 +1,10 @@
 package Stages;
 
 
+import Fight.Fighter;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-
-import Fight.Fighter;
 
 
 
@@ -55,7 +54,7 @@ public abstract class Stage  {
 		{
 			if(player[i]!=null)
 			{
-		     if(player[i].fliegtEin()==false)
+		     if(!player[i].fliegtEin())
 		     {
 			    int x=player[i].getPos()[0];
 			    int y=player[i].getPos()[1]-(dimension.height-600);

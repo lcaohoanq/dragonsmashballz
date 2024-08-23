@@ -1,11 +1,10 @@
 package Settings;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-
 import Controlls.ControlSheet;
 import Controlls.GamepadSheet;
 import Controlls.KeyboardSheet;
+import java.io.Serializable;
+import java.util.ArrayList;
 
 public class ControlSettings implements Serializable{
 
@@ -18,7 +17,7 @@ public class ControlSettings implements Serializable{
 	public final static String[] padnames={"Attack","Ki-Load","Defence","Skill","Ultimate","Special"};
 	
 	
-	private ArrayList<ControlSheet> sheets=new ArrayList<ControlSheet>();
+	private final ArrayList<ControlSheet> sheets=new ArrayList<ControlSheet>();
 	
 	
 	public ControlSettings(){

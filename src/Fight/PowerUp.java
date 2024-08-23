@@ -6,9 +6,9 @@ public class PowerUp {
 	
 	public final static int HEILUNG=0,DEFPLUS=1,ATKPLUS=2,LOADPLUS=3,SPEEDPLUS=4,TELEPORT=5;
 	
-	private int art;
-	private int dauer;
-	private int power;
+	private final int art;
+	private final int dauer;
+	private final int power;
 	
 	private int time;
 	

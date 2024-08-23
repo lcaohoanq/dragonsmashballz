@@ -1,11 +1,17 @@
 package Menu;
 
 
+import DBZ.Main;
+import DBZ.PlayerControl;
+import Fight.Fighter;
+import Fight.FighterData;
+import Images.GameImages;
+import Misc.MiniTimer;
+import Save.HistoryFight;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -15,23 +21,14 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import DBZ.Main;
-import DBZ.PlayerControl;
-import Fight.Fighter;
-import Fight.FighterData;
-import Fight.Team;
-import Images.GameImages;
-import Misc.MiniTimer;
-import Save.HistoryFight;
-
 
 
 
 public class HUD {
 
 
-	private Font font=new Font("Arial",3,30);
-	private Font font2=new Font("Arial",3,50);
+	private final Font font=new Font("Arial",3,30);
+	private final Font font2=new Font("Arial",3,50);
 	private static int[] damage;
 	private static int[] timer;
 	
@@ -55,9 +52,9 @@ public class HUD {
     private int mapID;
     
     //kill anzeige
-    private static MiniTimer minitimer=new MiniTimer();
-    private static String[] killmessages={"has killed","has defeated","has slain","has beaten","wiped out","has annihilated"};
-    private static String[] multikill={"Doublekill","Triplekill","Quadrakill","Pentakill","Hexakill","Megakill","Megakill","Megakill","Megakill","Megakill"};
+    private static final MiniTimer minitimer=new MiniTimer();
+    private static final String[] killmessages={"has killed","has defeated","has slain","has beaten","wiped out","has annihilated"};
+    private static final String[] multikill={"Doublekill","Triplekill","Quadrakill","Pentakill","Hexakill","Megakill","Megakill","Megakill","Megakill","Megakill"};
     private static int killer,opfer,killmessage;
     
   
@@ -88,7 +85,7 @@ public class HUD {
 	starttimer=120;
 	if(modus.length()>=st.length())
 	{
-	   if(modus.substring(0,st.length()).equals(st))
+	   if(modus.startsWith(st))
 	   {
 		   starttimer=0;
 	
@@ -108,15 +105,8 @@ public class HUD {
 	
 	public boolean start()
 	{
-		
-		if(starttimer<=0)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+
+        return starttimer <= 0;
 			
 	}
 	
@@ -208,19 +198,19 @@ public class HUD {
 	 
 		 if(spiegeln==1)
 		 {
-			  g.drawImage(img,x+400,y,-400,(int)(50),null);
+			  g.drawImage(img,x+400,y,-400, 50,null);
 		 }		 
 		 else if(spiegeln==2)
 		 {
-			 g.drawImage(img,x,y+50,(int)(400),(int)(-50),null);
+			 g.drawImage(img,x,y+50, 400, -50,null);
 		 }	
 		 else if(spiegeln==3)
 		 {
-			  g.drawImage(img,x+400,y+50,-400,(int)(-50),null);
+			  g.drawImage(img,x+400,y+50,-400, -50,null);
 		 }
 		 else
 		 {
-		  g.drawImage(img,x,y,(int)(400),(int)(50),null);
+		  g.drawImage(img,x,y, 400, 50,null);
 		 }
 	}
 	
@@ -337,7 +327,7 @@ public class HUD {
 			{
 				if(fighter[i]!=null)
 				{
-					if(fighter[i].isDead()==false)
+					if(!fighter[i].isDead())
 					{
 				int xpos=fighter[i].getPos()[0]-50;
 				int ypos=fighter[i].getPos()[1]-85;
@@ -481,7 +471,7 @@ public class HUD {
 				{
 					if(fighter[teamid.get(h)]!=null)
 					{
-					if(fighter[teamid.get(h)].isDead()==false)
+					if(!fighter[teamid.get(h)].isDead())
 					{
 						teamko=false;
 					
@@ -666,7 +656,7 @@ public class HUD {
 		  {
 			  
 				
-			  g.drawImage(GameImages.ko, (int)(400),(int)(300),(int)(200),(int)(120),null);
+			  g.drawImage(GameImages.ko, 400, 300, 200, 120,null);
 			 
 			  
 			  
@@ -777,7 +767,7 @@ public class HUD {
 		{
 			if(fighter[i]!=null)
 			{
-				int s[]=new int[8];
+				int[] s =new int[8];
 					int id=fighter[i].getAttributes()[0];
 					
 					if(fighter[i].hatGesiegt())

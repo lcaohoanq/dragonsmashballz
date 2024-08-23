@@ -2,7 +2,7 @@ package DBZ.World;
 
 public class Dragonballs {
 
-	private int[][] pos=new int[7][2]; 
+	private final int[][] pos=new int[7][2];
 	private boolean[] active;
 	
 	public Dragonballs(){
@@ -17,7 +17,7 @@ public class Dragonballs {
 	
 	for(int i=0; i<7; i++)
 	{
-		if(active[i]==false)
+		if(!active[i])
 		{
 			pos[i][0]=(int)(Math.random()*(maxx-100)+1)+50;
 			pos[i][1]=(int)(Math.random()*(maxy-100)+1)+50;
@@ -42,7 +42,7 @@ public class Dragonballs {
 		active[d]=true;
 		for(int i=0; i<7; i++)
 		{
-			if(active[i]==false)
+			if(!active[i])
 			{
 				alle=false;
 				break;

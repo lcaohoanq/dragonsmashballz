@@ -1,11 +1,10 @@
 package Battle;
 
 
-import java.awt.Graphics;
-
 import Fight.Fighter;
 import Fight.FighterData;
 import Images.GameImages;
+import java.awt.Graphics;
 
 
 
@@ -14,11 +13,11 @@ public class Battle {
 
 	private static Attack[] angriffe=new Attack[150];
 	
-	private FighterData data=new FighterData();
-	private static Explosion[] explosions=new Explosion[50];
+	private final FighterData data=new FighterData();
+	private static final Explosion[] explosions=new Explosion[50];
 	
-	private SpecialEffect special=new SpecialEffect();
-	private DruckDuell duell=new DruckDuell();
+	private final SpecialEffect special=new SpecialEffect();
+	private final DruckDuell duell=new DruckDuell();
 	
 	public Battle()
 	{
@@ -86,7 +85,7 @@ public class Battle {
 						
 						}
 					
-						if(angriffe[i].isAbsorbDamage()&&player[h].isCyborg()==false)
+						if(angriffe[i].isAbsorbDamage()&& !player[h].isCyborg())
 						{
 							player[angriffe[i].getAbsender()].heal(d.damage/2);
 						}
@@ -102,7 +101,7 @@ public class Battle {
 						{
 							if(sfunk==Attack.BODYCHANGE)
 							{
-							//Körpertausch
+							//Kï¿½rpertausch
 							int aid=angriffe[i].getAbsender();
 							
 							Fighter f=player[aid];

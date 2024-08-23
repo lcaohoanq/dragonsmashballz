@@ -7,9 +7,9 @@ public class Dialog {
 	
 	private boolean show=false;
 	private int messagenr=0;
-	private  ArrayList<String> messages=new ArrayList<String>();
-	private  ArrayList<Integer> speeker=new ArrayList<Integer>();
-	private  ArrayList<DialogAktion> aktion=new ArrayList<DialogAktion>();
+	private final ArrayList<String> messages=new ArrayList<String>();
+	private final ArrayList<Integer> speeker=new ArrayList<Integer>();
+	private final ArrayList<DialogAktion> aktion=new ArrayList<DialogAktion>();
 	
 	public Dialog()
 	{
@@ -54,14 +54,7 @@ public class Dialog {
 	
     public boolean lastMessage()
     {
-    	if(messagenr==messages.size()-1)
-    	{
-    		return true;
-    	}
-    	else
-    	{
-    		return false;
-    	}
+        return messagenr == messages.size() - 1;
     }
 
 	public void clearAktion() {

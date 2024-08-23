@@ -1,55 +1,53 @@
 	package DBZ;
 
 
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Timer;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
-import Achievements.Achievements;
-import Battle.Attack;
-import Battle.Battle;
-import Battle.Blood;
-import Controlls.ControlSheet;
-import Controlls.GamePads;
-import Controlls.GamepadSheet;
-import Controlls.KeyboardSheet;
-import Controlls.Keys;
-import Controlls.PlayerMovement;
-import Fight.Fight;
-import Fight.Fighter;
-import Fight.Team;
-import FighterBuild.Item;
-import FighterBuild.ItemData;
-import Images.GameImages;
-import KI.EasyKI;
-import KI.FighterKI;
-import KI.HeavyKI;
-import Menu.HUD;
-import Menu.Menu;
-import Menu.VersusScreen;
-import Save.ProfilLoader;
-import Save.ProfilSaver;
-import Settings.ControlSettings;
-import Settings.GameSettings;
-import Stages.Stage;
-import Story.Dialog;
-import Story.Zuschauer;
+    import Achievements.Achievements;
+    import Battle.Attack;
+    import Battle.Battle;
+    import Battle.Blood;
+    import Controlls.ControlSheet;
+    import Controlls.GamePads;
+    import Controlls.GamepadSheet;
+    import Controlls.KeyboardSheet;
+    import Controlls.Keys;
+    import Controlls.PlayerMovement;
+    import Fight.Fight;
+    import Fight.Fighter;
+    import Fight.Team;
+    import FighterBuild.Item;
+    import FighterBuild.ItemData;
+    import Images.GameImages;
+    import KI.EasyKI;
+    import KI.FighterKI;
+    import KI.HeavyKI;
+    import Menu.HUD;
+    import Menu.Menu;
+    import Menu.VersusScreen;
+    import Save.ProfilLoader;
+    import Save.ProfilSaver;
+    import Settings.ControlSettings;
+    import Settings.GameSettings;
+    import Stages.Stage;
+    import Story.Dialog;
+    import Story.Zuschauer;
+    import java.awt.Color;
+    import java.awt.Cursor;
+    import java.awt.Dimension;
+    import java.awt.Font;
+    import java.awt.FontMetrics;
+    import java.awt.Graphics;
+    import java.awt.Image;
+    import java.awt.Point;
+    import java.awt.Rectangle;
+    import java.awt.Toolkit;
+    import java.awt.event.KeyEvent;
+    import java.awt.image.BufferedImage;
+    import java.io.IOException;
+    import java.net.URL;
+    import java.util.ArrayList;
+    import java.util.Timer;
+    import javax.swing.JFrame;
+    import javax.swing.JPanel;
 
 
 
@@ -61,7 +59,7 @@ public class Main extends JFrame{
 	 */
 	public static	String ordnerpfad=System.getProperty("user.home")+"/BRollGames/DragonSMASHBall";
 	private static BufferedImage screen =new BufferedImage(300,200,BufferedImage.TYPE_INT_RGB);
-    private static Dimension paintDimension=new Dimension(0,0); 
+    private static final Dimension paintDimension=new Dimension(0,0);
     public static String LOADING="";
 	private static final long serialVersionUID = 1L;
 
@@ -70,8 +68,8 @@ public class Main extends JFrame{
 	//Display
 	public static double xf,yf;
 	public static FighterKI currentKI=new HeavyKI();
-	public static int resolution[]=new int[2];
-	public static int fullresolution[]=new int[2];
+	public static int[] resolution =new int[2];
+	public static int[] fullresolution =new int[2];
 	public static boolean PAINT=true;
 	//Bilder
 	public static int fighteranz=66;
@@ -86,10 +84,10 @@ public class Main extends JFrame{
 	public static GameSettings settings;
     public static Achievements achievements;
 	
-	private PlayerMovement playerAction=new PlayerMovement();
+	private final PlayerMovement playerAction=new PlayerMovement();
 	private Fighter[] player=new Fighter[4];
 	private HUD huds=new HUD();
-	private Battle battle=new Battle();
+	private final Battle battle=new Battle();
 	private static Menu menu;
     private Zuschauer zuschauer;
     
@@ -97,15 +95,15 @@ public class Main extends JFrame{
 	private static boolean fightPause=false;
 	
 	private Stage stage;
-    private VersusScreen vscreen=new VersusScreen();
+    private final VersusScreen vscreen=new VersusScreen();
   
-    private DialogViewer dialogviewer=new DialogViewer();
+    private final DialogViewer dialogviewer=new DialogViewer();
 	public static Team team;
-	private StartLoader startloader=new StartLoader();
+	private final StartLoader startloader=new StartLoader();
 	
     //Mulitplayer    
     public static Main main;
-    private Font errorfont=new Font("Arial",1,15);
+    private final Font errorfont=new Font("Arial",1,15);
    
   	private BufferedImage mapimage;
  	public static void main(String[] args)
@@ -120,7 +118,7 @@ public class Main extends JFrame{
 	Dimension dimension=Toolkit.getDefaultToolkit().getScreenSize();
 	   
 		 main.setSize(300,200);
-		 main.paintDimension.setSize(300, 200);
+		 paintDimension.setSize(300, 200);
 		   main.setLocation(dimension.width/2-150, dimension.height/2-150);
 		   fullresolution[0]=dimension.width;
 		   fullresolution[1]=dimension.height;
@@ -150,8 +148,8 @@ public class Main extends JFrame{
 	    resolution[0]=1000;
 	    resolution[1]=600;	    
 	 
-	    xf=(double)dimension.getWidth()/(double)resolution[0];
-	    yf=(double)dimension.getHeight()/(double)resolution[1];	    
+	    xf= dimension.getWidth() /(double)resolution[0];
+	    yf= dimension.getHeight() /(double)resolution[1];
 	     
 	    System.out.println("Initialisize...");
 		   
@@ -486,7 +484,7 @@ public class Main extends JFrame{
 			keys.activateCheat();
 		
 			
-			if(menu.isNetworkFight()==false)
+			if(!menu.isNetworkFight())
 			{
 			
 			if(vscreen.isActiv())
@@ -504,14 +502,7 @@ public class Main extends JFrame{
 				if(keys.getLastKey()==KeyEvent.VK_ESCAPE&&huds.start())
 				{				
 				fightPause=!fightPause;
-				if(fightPause)
-				{
-					hideMouse(false);
-				}
-				else
-				{
-					hideMouse(true);
-				}
+                    hideMouse(!fightPause);
 				sound.killSounds();
 				}		
 				
@@ -524,7 +515,7 @@ public class Main extends JFrame{
 				}
 				else
 				{
-				if(dialogviewer.stopBattle()==false&&huds.start())
+				if(!dialogviewer.stopBattle() &&huds.start())
 				{
 					controllPlayer();
 				}
@@ -628,7 +619,7 @@ public class Main extends JFrame{
 			{
 				if(team.isEnemy(id, i))
 				{
-					if(set==false)
+					if(!set)
 					{
 						ziel=i;
 						set=true;
@@ -661,7 +652,7 @@ public class Main extends JFrame{
 			{
 				//Tastatursteuerung
 				KeyboardSheet keysheet=(KeyboardSheet)sheet;
-				int tasten[]=keysheet.getKeys();
+				int[] tasten =keysheet.getKeys();
 				for(int i=0; i<tasten.length; i++)
 				{
 					if(tasten[i]!=-1)

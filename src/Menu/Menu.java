@@ -1,37 +1,12 @@
 package Menu;
 
 
-import java.awt.AlphaComposite;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.io.File;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-
 import Achievements.Achievements;
-import Battle.Blood;
-import Controlls.GamePads;
-import Controlls.Keys;
-import Controlls.Steuerung;
 import DBZ.Main;
 import DBZ.PlayerControl;
 import DBZ.Sound;
 import Fight.Fight;
 import Fight.Fighter;
-import Fight.FighterData;
-import Fight.Team;
-import FighterBuild.Item;
 import Images.GameImages;
 import Misc.Credits;
 import Misc.ZeniScreen;
@@ -40,16 +15,23 @@ import Save.MatchHistory;
 import Save.Profil;
 import Save.ProfilLoader;
 import Save.ProfilSaver;
-import Settings.ControlSettings;
 import Settings.OptionMenu;
 import Stages.Stage;
-import Story.Chapter;
 import Story.Story;
-import Story.StoryBattle;
 import Story.Wunsch;
 import Tournament.Tournament;
 import Tournament.TournamentGame;
 import Tournament.TournamentWorld;
+import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.io.File;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
 
 
 public class Menu extends MenuData implements MouseListener,MouseMotionListener{
@@ -65,19 +47,19 @@ public class Menu extends MenuData implements MouseListener,MouseMotionListener{
      private boolean dragged=false;
 
 	private TournamentGame tournament;
-	private StoryMenu storymenu;
+	private final StoryMenu storymenu;
     
-	private OptionMenu optionmenu;
+	private final OptionMenu optionmenu;
 
-	private ProfilLoader savereader=new ProfilLoader();
-	private ProfilSaver savewriter=new ProfilSaver();
+	private final ProfilLoader savereader=new ProfilLoader();
+	private final ProfilSaver savewriter=new ProfilSaver();
 	public static MatchHistory matchhistory;
 	private Profil profil;
-	private Story story;
+	private final Story story;
 	
-    private ProfilMenu profilmenu=new ProfilMenu();
-	private Credits credits;
-	private Intro intro=new Intro();
+    private final ProfilMenu profilmenu=new ProfilMenu();
+	private final Credits credits;
+	private final Intro intro=new Intro();
     private int fps=-1;
     
 	public Menu()	
@@ -160,8 +142,8 @@ public boolean[] getDragonballlist()
    
   private float flyw=0;
    
-   private String[] singleplayer={"Story Mode","Tournament","World Tournament","Training","Watch Battle","Back"};
-   private String[] multiplayer={"Team Fight","Tournament","Show Network IP","Join Network Battle","Back"};
+   private final String[] singleplayer={"Story Mode","Tournament","World Tournament","Training","Watch Battle","Back"};
+   private final String[] multiplayer={"Team Fight","Tournament","Show Network IP","Join Network Battle","Back"};
  
 
 private boolean networkfight;
@@ -266,18 +248,18 @@ private boolean networkfight;
 		   boolean tourn=false;
 		   if(tournament!=null)
 		   {
-			   if(tournament.isRunning()==true)
+			   if(tournament.isRunning())
 			   {
 				   tourn=true;
 			   }
 		   }
 		   
-		   if(tourn==false)
+		   if(!tourn)
 		   {
 		   if(submenu==1)//Singleplayer
 		   {
 			   
-				g.drawImage(GameImages.menuback,0,0,(int)(1000),(int)(600),null);
+				g.drawImage(GameImages.menuback,0,0, 1000, 600,null);
 				
 				   paintGoku(g);
 				 int m=paintMenu(g,singleplayer,150,100,700,50);
@@ -331,22 +313,8 @@ private boolean networkfight;
 	           selection.setKlick(klickn);
 	           selection.setTeamFight(false);
 	          	klickn=0;
-	          	if(submenu==1.2)
-	          	{
-	          		selection.setMulitSelection(true);
-	          	}
-	          	else
-	          	{
-	          		selection.setMulitSelection(false);
-	          	}
-		       if(submenu!=1.1)
-		       {
-		    	selection.setMapSelection(true);
-		       }
-		       else
-		       {
-		    	   selection.setMapSelection(false);
-		       }
+               selection.setMulitSelection(submenu == 1.2);
+               selection.setMapSelection(submenu != 1.1);
 			   selection.paint(g, mx,my);				
 			 
 				   if(selection.wantExit()){
@@ -452,7 +420,7 @@ private boolean networkfight;
 		   if(submenu==2)//Multiplayer
 		   {
 			   
-				g.drawImage(GameImages.menuback,0,0,(int)(1000),(int)(600),null);
+				g.drawImage(GameImages.menuback,0,0, 1000, 600,null);
 				 paintGoku(g);
 				 int m=paintMenu(g,multiplayer,150,150,700,50);
 				 paintTitle(g,"MULTIPLAYER");
@@ -570,7 +538,7 @@ private boolean networkfight;
 		   }
 		   if(submenu==3)//Options
 		   {
-			   g.drawImage(GameImages.menuback,0,0,(int)(1000),(int)(600),null);				
+			   g.drawImage(GameImages.menuback,0,0, 1000, 600,null);
 			   paintGoku(g);
 			   optionmenu.setKlick(klickn);
 			   optionmenu.setDragged(dragged);
@@ -993,7 +961,7 @@ private void newFight(int id1, int id2, Stage stage,String modus) {
 	}
 
 	
-	private PauseMenu pause=new PauseMenu();
+	private final PauseMenu pause=new PauseMenu();
 	public boolean paintPauseMenu(Graphics g) {
 		// TODO Auto-generated method stub
 		boolean close=false;

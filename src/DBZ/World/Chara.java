@@ -1,12 +1,10 @@
 package DBZ.World;
 
+import Images.GameImages;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
-
-import DBZ.Main;
-import Images.GameImages;
 
 
 
@@ -129,7 +127,7 @@ public class Chara {
 			case 2:   s+=0.1;  break;//Hoch
 			case 3: s-=0.2; break;//Runter
 			case 4: 
-			if(s==0&&block[MIDDLE]==false)
+			if(s==0&& !block[MIDDLE])
 			{
 				fly=false;
 				

@@ -3,8 +3,8 @@ package DBZ;
 
 public abstract class Form {
 
-	protected float pos[]=new float[2];
-	protected float speed[]=new float[2];
+	protected float[] pos =new float[2];
+	protected float[] speed =new float[2];
 	protected boolean active=false;
 	
 	

@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 public class Steuerung {
 
 	
-	private int tasten[][]=new int[3][8];
+	private final int[][] tasten =new int[3][8];
 	
 	public Steuerung()
 	{

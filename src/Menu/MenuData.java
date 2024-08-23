@@ -1,15 +1,13 @@
 package Menu;
 
 
-import java.awt.AlphaComposite;
+import DBZ.Main;
+import Images.GameImages;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-
-import DBZ.Main;
-import Images.GameImages;
 
 
 public abstract class MenuData {
@@ -24,12 +22,12 @@ public abstract class MenuData {
 	 protected void paintTitle(Graphics g,String title)
 	   {
 		   g.setColor(new Color(150,150,150));
-		   g.drawImage(GameImages.cursor[0],0,0,(int)(1000),(int)(80),null);
+		   g.drawImage(GameImages.cursor[0],0,0, 1000, 80,null);
 		   g.setFont(font);
 		   g.setColor(new Color(0,0,0));
 		   FontMetrics fm=g.getFontMetrics(font);
 		
-		   g.drawString(title,(int)(500-fm.stringWidth(title)/2),(int)(50));
+		   g.drawString(title, 500-fm.stringWidth(title)/2, 50);
 	   }
 	 
 	 protected int mainMenuSelection()
@@ -71,14 +69,7 @@ public abstract class MenuData {
 	 
 	 protected boolean inBereich(int mx, int my,int x, int y, int b, int h)
 	 {
-		if(mx>=x&&mx<=b&&my>=y&&my<=h)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}		
+         return mx >= x && mx <= b && my >= y && my <= h;
 	 }
 
 	   protected int paintMenu(Graphics g, String[] menu, int xp, int yp, int width, int height)
@@ -93,7 +84,8 @@ public abstract class MenuData {
 				  
 				if(x>xp&&x<xp+width&&y>(yp+i*60)&&y<(yp+height+i*60))
 				{
-					   g.drawImage(GameImages.cursor[1], (int)(xp),(int)((yp+i*60)) ,(int)(width),(int)(height),null);
+					   g.drawImage(GameImages.cursor[1], xp, (yp+i*60), width,
+                           height,null);
 						   g.setColor(new Color(0,0,0));
 					   if(klick)
 					   {
@@ -103,11 +95,12 @@ public abstract class MenuData {
 				}
 				else
 				{
-					   g.drawImage(GameImages.cursor[0], (int)(xp),(int)((yp+i*60)) ,(int)(width),(int)(height),null);
+					   g.drawImage(GameImages.cursor[0], xp, (yp+i*60), width,
+                           height,null);
 						   g.setColor(new Color(50,50,50));
 				}				
 			
-			   g.drawString(menu[i], (int)((xp+width/10)),(int)((yp+35+i*60)) );
+			   g.drawString(menu[i], (xp+width/10), (yp+35+i*60));
 		 
 		   }
 		   return choice;
@@ -125,7 +118,8 @@ public abstract class MenuData {
 				  
 				if(x>xp+i*(width+20)&&x<xp+width+i*(width+20)&&y>(yp)&&y<(yp+height))
 				{
-					   g.drawImage(GameImages.cursor[1], (int)(xp+i*(width+20)),(int)((yp)) ,(int)(width),(int)(height),null);
+					   g.drawImage(GameImages.cursor[1], xp+i*(width+20), (yp), width,
+                           height,null);
 						   g.setColor(new Color(0,0,0));
 					   if(klick)
 					   {
@@ -135,11 +129,12 @@ public abstract class MenuData {
 				}
 				else
 				{
-					   g.drawImage(GameImages.cursor[0], (int)(xp+i*(width+20)),(int)((yp)) ,(int)(width),(int)(height),null);
+					   g.drawImage(GameImages.cursor[0], xp+i*(width+20), (yp), width,
+                           height,null);
 						   g.setColor(new Color(50,50,50));
 				}				
 			
-			   g.drawString(menu[i], (int)((xp+width/10+i*(width+20))),(int)((yp+35)) );
+			   g.drawString(menu[i], (xp+width/10+i*(width+20)), (yp+35));
 		 
 		   }
 		   return choice;
@@ -154,11 +149,12 @@ public abstract class MenuData {
 		   {
 				int x=mx;
 				int y=my;
-				if(locked[i]==false)
+				if(!locked[i])
 				{
 				if(x>xp&&x<xp+width&&y>(yp+i*60)&&y<(yp+height+i*60))
 				{
-					   g.drawImage(GameImages.cursor[1], (int)(xp),(int)((yp+i*60)) ,(int)(width),(int)(height),null);
+					   g.drawImage(GameImages.cursor[1], xp, (yp+i*60), width,
+                           height,null);
 						
 					   g.setColor(new Color(0,0,0));
 					   if(klick)
@@ -169,19 +165,21 @@ public abstract class MenuData {
 				}
 				else
 				{
-					   g.drawImage(GameImages.cursor[0], (int)(xp),(int)((yp+i*60)) ,(int)(width),(int)(height),null);
+					   g.drawImage(GameImages.cursor[0], xp, (yp+i*60), width,
+                           height,null);
 						
 					   g.setColor(new Color(50,50,50));
 				}		
 				}
 				else
 				{
-					   g.drawImage(GameImages.cursor[2], (int)(xp),(int)((yp+i*60)) ,(int)(width),(int)(height),null);
+					   g.drawImage(GameImages.cursor[2], xp, (yp+i*60), width,
+                           height,null);
 						
 					   g.setColor(new Color(255,0,0));
 				}
 			
-			   g.drawString(menu[i], (int)((xp+width/10)),(int)((yp+35+i*60)) );
+			   g.drawString(menu[i], (xp+width/10), (yp+35+i*60));
 				  
 		   }
 		   return choice;
@@ -196,11 +194,12 @@ public abstract class MenuData {
 		   {
 				int x=mx;
 				int y=my;
-				if(locked[i]==false)
+				if(!locked[i])
 				{
 				if(x>xp&&x<xp+width&&y>(yp+i*60)&&y<(yp+height+i*60))
 				{
-					   g.drawImage(GameImages.cursor[1], (int)(xp),(int)((yp+i*60)) ,(int)(width),(int)(height),null);
+					   g.drawImage(GameImages.cursor[1], xp, (yp+i*60), width,
+                           height,null);
 					   g.setColor(new Color(0,0,0));
 					   if(klick)
 					   {
@@ -210,11 +209,12 @@ public abstract class MenuData {
 				}
 				else
 				{
-					   g.drawImage(GameImages.cursor[0], (int)(xp),(int)((yp+i*60)) ,(int)(width),(int)(height),null);
+					   g.drawImage(GameImages.cursor[0], xp, (yp+i*60), width,
+                           height,null);
 					   g.setColor(new Color(50,50,50));
 				}	
 				
-				   g.drawString(menu[i], (int)((xp+width/10)),(int)((yp+35+i*60)) );
+				   g.drawString(menu[i], (xp+width/10), (yp+35+i*60));
 				
 				}
 		   }
@@ -234,7 +234,8 @@ public abstract class MenuData {
 				
 				if(x>xp&&x<xp+width&&y>(yp+i*60)&&y<(yp+height+i*60))
 				{
-					  g.drawImage(GameImages.cursor[1], (int)(xp),(int)((yp+i*60)) ,(int)(width),(int)(height),null);
+					  g.drawImage(GameImages.cursor[1], xp, (yp+i*60), width,
+                          height,null);
 					   g.setColor(new Color(0,0,0));
 					   if(klick)
 					   {
@@ -244,17 +245,19 @@ public abstract class MenuData {
 				}
 				else if(wahl==i)
 				{
-					  g.drawImage(GameImages.cursor[1], (int)(xp),(int)((yp+i*60)) ,(int)(width),(int)(height),null);
+					  g.drawImage(GameImages.cursor[1], xp, (yp+i*60), width,
+                          height,null);
 					   g.setColor(new Color(0,0,0));
 				}
 				else
 				{
-					  g.drawImage(GameImages.cursor[0], (int)(xp),(int)((yp+i*60)) ,(int)(width),(int)(height),null);
+					  g.drawImage(GameImages.cursor[0], xp, (yp+i*60), width,
+                          height,null);
 					   g.setColor(new Color(50,50,50));
 				}				
 			 
 		
-			   g.drawString(menu[i], (int)((xp+width/10)),(int)((yp+35+i*60)) );
+			   g.drawString(menu[i], (xp+width/10), (yp+35+i*60));
 				  
 		   }
 		   return choice;
@@ -271,7 +274,8 @@ public abstract class MenuData {
 			
 				if(i==select)
 				{
-					  g.drawImage(GameImages.cursor[1], (int)(xp),(int)((yp+i*60)) ,(int)(width),(int)(height),null);
+					  g.drawImage(GameImages.cursor[1], xp, (yp+i*60), width,
+                          height,null);
 					   g.setColor(new Color(0,0,0));
 					   if(klick)
 					   {
@@ -282,19 +286,21 @@ public abstract class MenuData {
 				{
 					if(i<select)
 					{
-						  g.drawImage(GameImages.cursor[0], (int)(xp),(int)((yp+i*60)) ,(int)(width),(int)(height),null);
+						  g.drawImage(GameImages.cursor[0], xp, (yp+i*60), width,
+                              height,null);
 						  g.setColor(new Color(50,50,50));
 				  
 					}
 					else 
 					{
-						  g.drawImage(GameImages.cursor[2], (int)(xp),(int)((yp+i*60)) ,(int)(width),(int)(height),null);
+						  g.drawImage(GameImages.cursor[2], xp, (yp+i*60), width,
+                              height,null);
 							g.setColor(new Color(100,100,100));
 					}
 					 
 				}	
 			
-				 g.drawString(menu[i], (int)((xp+width/10)),(int)((yp+35+i*60)) );
+				 g.drawString(menu[i], (xp+width/10), (yp+35+i*60));
 		   }
 		 
 	   }
@@ -314,7 +320,8 @@ public abstract class MenuData {
 				  
 				if(x>xp&&x<xp+width&&y>yp&&y<yp+height)
 				{
-					   g.drawImage(GameImages.titlemenucursors[1], (int)(xp),(int)yp ,(int)(width),(int)(height),null);
+					   g.drawImage(GameImages.titlemenucursors[1], xp, yp, width,
+                           height,null);
 						
 					   g.setColor(new Color(0,0,0));
 					   if(klick)
@@ -325,12 +332,13 @@ public abstract class MenuData {
 				}
 				else
 				{
-					   g.drawImage(GameImages.titlemenucursors[0], (int)(xp),yp ,(int)(width),(int)(height),null);
+					   g.drawImage(GameImages.titlemenucursors[0], xp,yp , width,
+                           height,null);
 						
 					   g.setColor(new Color(255,255,255));
 				}				
 			
-			   g.drawString(menu[i], (int)((xp+75)),yp+37 );
+			   g.drawString(menu[i], (xp+75),yp+37 );
 				  
 			   yp+=70;
 			   xp+=25;
@@ -386,13 +394,6 @@ public abstract class MenuData {
 	   public void setKlick(int nr)
 	   {
 		   klickn=nr;
-		   if(klickn>0)
-		   {
-			   klick=true;
-		   }
-		   else
-		   {
-			   klick=false;
-		   }
+           klick= klickn > 0;
 	   }
 }

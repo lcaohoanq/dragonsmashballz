@@ -1,23 +1,22 @@
 package Story;
 
-import java.util.ArrayList;
-
 import DBZ.PlayerControl;
 import Fight.Fight;
 import Fight.Fighter;
 import Stages.Stage;
+import java.util.ArrayList;
 
 
 public class StoryBattle {
 
 	Fighter[] fighter;
 	Stage stage;
-	private String name;
+	private final String name;
 	private Dialog dialog;
-	private int[] pos=new int[2];
+	private final int[] pos=new int[2];
 	private int map=0,icon;
   private int geld;
-  private int nr;
+  private final int nr;
   private   ArrayList<Integer> team;
   private Zuschauer zuschauer;
 
@@ -76,14 +75,7 @@ public class StoryBattle {
 	
 	public boolean isOnMap(int nr)
 	{
-		if(nr==map)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+        return nr == map;
 	}
 	
 	public void setPos(int x, int y)
@@ -159,14 +151,7 @@ public class StoryBattle {
 	
 	public boolean isTeamFight()
 	{
-		if(fighter.length>2)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+        return fighter.length > 2;
 	}
 
 	public int getMoney() {

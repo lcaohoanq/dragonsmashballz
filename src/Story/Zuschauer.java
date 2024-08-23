@@ -1,20 +1,18 @@
 package Story;
 
+import Images.GameImages;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
-import DBZ.Main;
-import Images.GameImages;
-
 public class Zuschauer {
 
-	  private   ArrayList<Integer> zuschauer=new ArrayList<Integer>() ;
-	  private   ArrayList<Boolean> zuschauerplatz=new  ArrayList<Boolean>();
+	  private final ArrayList<Integer> zuschauer=new ArrayList<Integer>() ;
+	  private final ArrayList<Boolean> zuschauerplatz=new  ArrayList<Boolean>();
 	  
-	  private   ArrayList<Integer> ypos=new  ArrayList<Integer>();
+	  private final ArrayList<Integer> ypos=new  ArrayList<Integer>();
 	  private float winkel;
-	  private Dimension dim=new Dimension(150,150);
+	  private final Dimension dim=new Dimension(150,150);
 	
 	public Zuschauer()
 	{
@@ -54,14 +52,15 @@ public class Zuschauer {
 			{//links schauer
 				
 				x=rx;
-				g.drawImage(GameImages.fighter[zuschauer.get(i)][4],x+dim.width,y,(int)(-dim.width),(int)(dim.height),null);
+				g.drawImage(GameImages.fighter[zuschauer.get(i)][4],x+dim.width,y, -dim.width,
+                    dim.height,null);
 				rx-=80;
 			}
 			else
 			{// rechts schauer
 				
 			x=lx;
-			g.drawImage(GameImages.fighter[zuschauer.get(i)][4],x,y,(int)(dim.width),(int)(dim.height),null);	
+			g.drawImage(GameImages.fighter[zuschauer.get(i)][4],x,y, dim.width, dim.height,null);
 			lx+=80;
 			}
 			

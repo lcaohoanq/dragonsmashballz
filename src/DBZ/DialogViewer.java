@@ -1,15 +1,12 @@
 package DBZ;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
 import Fight.Fighter;
 import Images.GameImages;
 import Menu.MenuData;
 import Story.Dialog;
 import Story.DialogAktion;
+import java.awt.Color;
+import java.awt.Graphics;
 
 
 
@@ -19,7 +16,8 @@ public class DialogViewer extends MenuData {
 	private boolean stop=true;
 	private int scroll=0;
 	private int scrolltime=0;
-	private int x=200,y=220;
+	private final int x=200;
+    private final int y=220;
 	
 	
 	
@@ -138,7 +136,7 @@ public class DialogViewer extends MenuData {
 					Main.sound.playSound(17, true);
 					scroll=0;	
 				
-					if(dialog.lastMessage()==false)
+					if(!dialog.lastMessage())
 					{
 						 aktion=dialog.getDialogAktion();
 						 if(aktion!=null)
@@ -181,14 +179,7 @@ public class DialogViewer extends MenuData {
   
 	public boolean stopBattle()
 	{
-		if(dialog!=null)
-		{
-		return true;
-		}
-		else{
-			return false;
-			
-		}
+        return dialog != null;
 	}
 
 

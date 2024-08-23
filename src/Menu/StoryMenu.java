@@ -1,8 +1,4 @@
 package Menu;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.util.ArrayList;
-
 
 import DBZ.Main;
 import DBZ.Sound;
@@ -15,6 +11,7 @@ import Story.Shenlong;
 import Story.Story;
 import Story.StoryBattle;
 import Story.Wunsch;
+import java.awt.Graphics;
 
 
 
@@ -30,7 +27,7 @@ public class StoryMenu extends MenuData {
 	private Wunsch wunsch;
 
 
-	private WorldMap world;
+	private final WorldMap world;
 	
 	public StoryMenu(Story story, boolean[] dragonballs)
 	{

@@ -1,9 +1,5 @@
 package KI;
 
-import Battle.Attack;
-import Fight.Fighter;
-
-
 public class HeavyKI extends FighterKI {
 
 	public HeavyKI()

@@ -1,13 +1,11 @@
 package Settings;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Image;
-
 import Battle.Blood;
 import DBZ.Main;
 import Images.GameImages;
 import Menu.MenuData;
+import java.awt.Color;
+import java.awt.Graphics;
 
 public class OptionMenu extends MenuData {
 
@@ -20,8 +18,8 @@ public class OptionMenu extends MenuData {
 		  
 	}
 	
-	private ControlMenu controlmenu;
-	private String[] options={"Graphic Settings","Music Settings","Controls","Gamespeed","Help","Back"};
+	private final ControlMenu controlmenu;
+	private final String[] options={"Graphic Settings","Music Settings","Controls","Gamespeed","Help","Back"};
     private int submenu=0;
 	private int fps=-1;
 	private int shownr=-1;

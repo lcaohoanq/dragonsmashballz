@@ -1,10 +1,9 @@
 package Tournament;
 
-import java.awt.Graphics;
-
 import Fight.Fight;
 import Fight.Fighter;
 import Menu.MenuData;
+import java.awt.Graphics;
 
 public abstract class TournamentGame extends MenuData{
 	

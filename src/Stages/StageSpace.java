@@ -1,17 +1,10 @@
 package Stages;
 
 
-import java.awt.Color;
-import java.awt.Dimension;
+import Images.GameImages;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.geom.AffineTransform;
-import java.net.URL;
-
-import DBZ.Main;
-import Images.GameImages;
 
 
 public class StageSpace extends Stage{

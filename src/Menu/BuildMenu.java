@@ -1,11 +1,5 @@
 package Menu;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.util.ArrayList;
-
-
-
 import DBZ.Main;
 import Fight.FighterData;
 import FighterBuild.Build;
@@ -14,13 +8,16 @@ import FighterBuild.Item;
 import FighterBuild.ItemData;
 import Images.GameImages;
 import Save.Profil;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.util.ArrayList;
 
 public class BuildMenu extends MenuData{
 	
 	
 	private int bselect=-1;
 	private int scrolly=0;
-	private ItemData idata=new ItemData();
+	private final ItemData idata=new ItemData();
 	private Build[] build=new Build[Main.fighteranz];
 	ArrayList<Item> items=	idata.getItems();
 	
@@ -82,7 +79,7 @@ public class BuildMenu extends MenuData{
 				  g.drawRoundRect(x,y,80,50,5,5);
 				  g.setColor(Color.BLACK);
 				  g.fillRect(x+13,y+3,56,46);	
-				  if(unlocked==false)
+				  if(!unlocked)
 				  {
 					  g.drawImage(GameImages.fighterselection[0],x+15,y+5,50,40,null);
 				  }
@@ -148,7 +145,7 @@ public class BuildMenu extends MenuData{
 	private void paintData(Graphics g, int x, int y, int fid) {
 		// TODO Auto-generated method stub
 		String[] d={"Health","Strength","Defence","Speed","Attack-Speed","Ki-Power","Ki-Load","Special"};
-		int werte[]=new int[8];
+		int[] werte =new int[8];
 	
 		werte[0]=FighterData.getAttributes(fid)[2];
 		werte[2]=FighterData.getAttributes(fid)[4];
@@ -160,7 +157,7 @@ public class BuildMenu extends MenuData{
 		werte[5]=FighterData.getDamages(fid)[2];
 		werte[7]=FighterData.getDamages(fid)[3]+FighterData.getDamages(fid)[4];
 		
-		int werte2[]=getNewData(werte,fid);
+		int[] werte2 =getNewData(werte,fid);
 		
 	
 		
@@ -203,10 +200,7 @@ public class BuildMenu extends MenuData{
 	private int[] getNewData(int[] w, int fid) {
 		
 		int[] werte=new int[8];
-		for(int i=0; i<8; i++)
-		{
-			werte[i]=w[i];
-		}
+        System.arraycopy(w, 0, werte, 0, 8);
 		
 		int[] it=build[fid].getBuild();
 		for(int i=0; i<it.length; i++){

@@ -1,25 +1,23 @@
 package Settings;
 
-import java.awt.AlphaComposite;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
-import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-
 import Controlls.ControlSheet;
 import Controlls.GamepadSheet;
 import Controlls.KeyboardSheet;
 import DBZ.Main;
 import Images.GameImages;
 import Menu.MenuData;
+import java.awt.AlphaComposite;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 public class ControlMenu extends MenuData{
 
-   private int width=200;
-   private int height=300;
+   private final int width=200;
+   private final int height=300;
    
    private int selectsheet=0;
    private int select=-1;
@@ -39,7 +37,7 @@ public class ControlMenu extends MenuData{
 	{
 		
 		g.drawImage(GameImages.menuback,0,0,null);
-		if(firstshow==false)
+		if(!firstshow)
 		{
 			padnames=Main.getGamePadList();
 	    	firstshow=true;	
@@ -250,7 +248,7 @@ public class ControlMenu extends MenuData{
            {
         	   key="-";
            }
-			g.drawString(""+key,x+80,y+15);
+			g.drawString(key,x+80,y+15);
 			}
 			else
 			{

@@ -74,16 +74,8 @@ public class Build implements Serializable {
 	}
 
 	public boolean hatItems() {
-		
-		
-		if(item.size()>0)
-		{
-		return true;
-		}
-		else
-		{
-			return false;
-		}
+
+        return item.size() > 0;
 		
 		
 	}

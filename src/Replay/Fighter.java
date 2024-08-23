@@ -6,11 +6,11 @@ public class Fighter {
 
 	
 	
-	private ArrayList<Integer> xpos=new ArrayList<Integer>();
-	private ArrayList<Integer> ypos=new ArrayList<Integer>();
-	private ArrayList<Integer> pid=new ArrayList<Integer>();
-	private ArrayList<Integer> fid=new ArrayList<Integer>();
-	private ArrayList<Boolean> left=new ArrayList<Boolean>();
+	private final ArrayList<Integer> xpos=new ArrayList<Integer>();
+	private final ArrayList<Integer> ypos=new ArrayList<Integer>();
+	private final ArrayList<Integer> pid=new ArrayList<Integer>();
+	private final ArrayList<Integer> fid=new ArrayList<Integer>();
+	private final ArrayList<Boolean> left=new ArrayList<Boolean>();
 
 	public Fighter()
 	{

@@ -1,10 +1,9 @@
 package Menu;
 
-import java.awt.Color;
-import java.awt.Graphics;
-
 import DBZ.Main;
 import Images.GameImages;
+import java.awt.Color;
+import java.awt.Graphics;
 
 public class PauseMenu extends MenuData{
 
@@ -14,7 +13,7 @@ public class PauseMenu extends MenuData{
 		
 	}
 	
-	private String[] m={"Return to Mainmenu","Frame:  ","Music:","Sound: ","Back"};
+	private final String[] m={"Return to Mainmenu","Frame:  ","Music:","Sound: ","Back"};
 	
 	public void paint(Graphics g)
 	{

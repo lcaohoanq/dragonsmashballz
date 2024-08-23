@@ -1,9 +1,5 @@
 package Controlls;
 
-import DBZ.ErrorLogger;
-import Fight.Fighter;
-
-
 public class PlayerMovement {
 
 	public PlayerMovement()
@@ -15,11 +11,11 @@ public class PlayerMovement {
 	{
 		int action=0;
 		//Angriffe > Bewewgung
-		if(tasten[6]&&tasten[0]==false&&tasten[1]==false&&tasten[2]==false&&tasten[3]==false)
+		if(tasten[6]&& !tasten[0] && !tasten[1] && !tasten[2] && !tasten[3])
 		{
 			action=17; //blocken
 		}
-		if(tasten[6]==false)
+		if(!tasten[6])
 		{//Normal Bewegen
 			
 		for(int i=0; i<4; i++)

@@ -6,10 +6,12 @@ public class Item {
 
 	
 
-	private String name,beschreibung;
-	private int preis,bildid;
+	private final String name;
+    private final String beschreibung;
+	private final int preis;
+    private final int bildid;
 	
-	private ArrayList<Effect> effect=new ArrayList<Effect>();
+	private final ArrayList<Effect> effect=new ArrayList<Effect>();
 	
 
 	

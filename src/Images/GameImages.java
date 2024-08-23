@@ -11,34 +11,49 @@ import java.net.URL;
 public class GameImages {
 
 	public static int fighteranz=DBZ.Main.fighteranz;
-	public static Image fighter[][] = new Image[fighteranz][30];
-	public static Image specialfighter[][] = new Image[1][30];
-	public static Image faces[] = new Image[fighteranz];
-	public static Image clouds[] = new Image[3];
-	public static Image maps[] = new Image[22];
-	public static Image aura[] = new Image[10];
-	public static Image chapterimages[] = new Image[5];
-	public static Image stages[] = new Image[maps.length+1];
-	public static Image fighterselection[] = new Image[fighteranz+2];
-	public static Image effects[],explosions[],congratulations,messagepfeil,messagebox,failed,hud,leben,ki,nextrow,title,ko,menuback,mapselection,vs,versusscreen;
-	public static Image blitzicon[] = new Image[2];
-	public static Image fighticon[] = new Image[2];
-	public static Image multisteer[] = new Image[11];
-	public static Image menuicons[] = new Image[3];
-	public static Image cursor[] = new Image[3];
-	public static Image active[] = new Image[2];
-	public static Image dragonballs[] = new Image[7];
-	public static Image itemicons[] = new Image[10];
-	public static Image worldicons[] = new Image[26];
-	public static Image maptiles[][]=new Image[2][100];
-	public static Image titlemenucursors[] = new Image[2];
-	public static Image minimap[]=new Image[2];
-	public static Image controllicons[]=new Image[2];
-	public static Image help[]=new Image[10];
-	public static Image atticons[]=new Image[5];
-	public static Image achblock[]=new Image[2];
-	public static Image duellpress[]=new Image[2];
-	public static Image mapchars[]=new Image[48];
+	public static Image[][] fighter = new Image[fighteranz][30];
+	public static Image[][] specialfighter = new Image[1][30];
+	public static Image[] faces = new Image[fighteranz];
+	public static Image[] clouds = new Image[3];
+	public static Image[] maps = new Image[22];
+	public static Image[] aura = new Image[10];
+	public static Image[] chapterimages = new Image[5];
+	public static Image[] stages = new Image[maps.length+1];
+	public static Image[] fighterselection = new Image[fighteranz+2];
+	public static Image[] effects;
+    public static Image[] explosions;
+    public static Image congratulations;
+    public static Image messagepfeil;
+    public static Image messagebox;
+    public static Image failed;
+    public static Image hud;
+    public static Image leben;
+    public static Image ki;
+    public static Image nextrow;
+    public static Image title;
+    public static Image ko;
+    public static Image menuback;
+    public static Image mapselection;
+    public static Image vs;
+    public static Image versusscreen;
+	public static Image[] blitzicon = new Image[2];
+	public static Image[] fighticon = new Image[2];
+	public static Image[] multisteer = new Image[11];
+	public static Image[] menuicons = new Image[3];
+	public static Image[] cursor = new Image[3];
+	public static Image[] active = new Image[2];
+	public static Image[] dragonballs = new Image[7];
+	public static Image[] itemicons = new Image[10];
+	public static Image[] worldicons = new Image[26];
+	public static Image[][] maptiles =new Image[2][100];
+	public static Image[] titlemenucursors = new Image[2];
+	public static Image[] minimap =new Image[2];
+	public static Image[] controllicons =new Image[2];
+	public static Image[] help =new Image[10];
+	public static Image[] atticons =new Image[5];
+	public static Image[] achblock =new Image[2];
+	public static Image[] duellpress =new Image[2];
+	public static Image[] mapchars =new Image[48];
 	public static Image mouse0,keyboard,gamepad,padchooser,pause,brollintro,storybattle,glitter;
 	public static Image pod,stars,pluscharacter,subcharacter,introback,logo,schild,shenlong,songoku,songohan,ring,ring2,raumschiff,brolllogo,hudready,hudfight;
 	 static String bf="/DBZ/Ressourcen/";
@@ -335,7 +350,7 @@ public class GameImages {
 	
 	public Image[] bilderEffekte()
 	{
-		Image e[]=new Image[85];
+		Image[] e =new Image[85];
 		URL filename = getClass().getResource(bf+"effects.png");
 		Image b=Toolkit.getDefaultToolkit().getImage( filename );	
 		for(int g=0; g<4; g++)
@@ -368,7 +383,7 @@ public class GameImages {
 	
 	public Image[] bilderExplosionen()
 	{
-		Image e[]=new Image[50];
+		Image[] e =new Image[50];
 		URL filename = getClass().getResource(bf+"bombs.png");
 		Image b=Toolkit.getDefaultToolkit().getImage( filename );	
 		
@@ -390,7 +405,7 @@ public class GameImages {
 	
 	public Image[][] bilderKaempfer()
 	{
-		Image fighter[][] = new Image[fighteranz][30];
+		Image[][] fighter = new Image[fighteranz][30];
 		for(int i=0; i<fighteranz; i++)
 		{
 			URL filename = getClass().getResource("/DBZ/FighterImages/fighter"+(i+1)+".png");

@@ -1,38 +1,26 @@
 package Menu;
 
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Polygon;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-
-import Controlls.Keys;
 import DBZ.Main;
 import DBZ.PlayerControl;
 import Fight.FighterData;
-import Fight.Team;
 import Images.GameImages;
-
-import Save.Profil;
 import Stages.Stage;
 import Stages.StageCastle;
 import Stages.StageCell;
 import Stages.StageCity;
 import Stages.StageCityDestroyed;
 import Stages.StageDesert;
-import Stages.StageKorin;
-import Stages.StageMountain;
 import Stages.StageField;
 import Stages.StageForrest;
 import Stages.StageIce;
 import Stages.StageIsland;
 import Stages.StageKaioworld;
 import Stages.StageKame;
+import Stages.StageKorin;
 import Stages.StageLabor;
 import Stages.StageLookout;
+import Stages.StageMountain;
 import Stages.StageNamek;
 import Stages.StageNamekDestroyed;
 import Stages.StagePlain;
@@ -41,29 +29,34 @@ import Stages.StageSnow;
 import Stages.StageSpace;
 import Stages.StageTimeChamber;
 import Stages.StageTournament;
-import Story.Chapter;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.Polygon;
+import java.util.ArrayList;
 
 public class FighterSelection extends MenuData{
 
 	private int selec=0,stageselection=0,pselect=0;
 	
 	
-	private FighterData fdata=new FighterData();
+	private final FighterData fdata=new FighterData();
 	private boolean multi=false,mapselection=true,teamfight=false,steuerungwahl=true;
-	private boolean[] freefighters;
-	private Stage[] stages={new StagePlain(),new StageKame(),new StageCity(),new StageNamek(),new StageMountain(),new StageDesert(),new StageField(),new StageIce(),new StageTournament(),new StageKorin(),new StageIsland(),new StageLookout(),new StageTimeChamber(),new StageCityDestroyed(),new StageCell(),new StageKaioworld(),new StageSpace(),new StageSnow(),new StageNamekDestroyed(),new StageForrest(),new StageLabor(),new StageCastle(),new StageRandom()  };
+	private final boolean[] freefighters;
+	private final Stage[] stages={new StagePlain(),new StageKame(),new StageCity(),new StageNamek(),new StageMountain(),new StageDesert(),new StageField(),new StageIce(),new StageTournament(),new StageKorin(),new StageIsland(),new StageLookout(),new StageTimeChamber(),new StageCityDestroyed(),new StageCell(),new StageKaioworld(),new StageSpace(),new StageSnow(),new StageNamekDestroyed(),new StageForrest(),new StageLabor(),new StageCastle(),new StageRandom()  };
 	
 
-	public static int fighters[]={FighterData.GOKU,FighterData.SSJGOKU,FighterData.SSJ2GOKU,FighterData.SSJ3GOKU,FighterData.SSJ4GOKU,FighterData.VEGETA,FighterData.SSJVEGETA,FighterData.SSJ2VEGETA,FighterData.SSJ4VEGETA,FighterData.VEGETO,FighterData.GOHANKID,FighterData.TEENGOHAN,FighterData.GOHANSSJ2,FighterData.GOHAN,FighterData.SSJSONGOHAN,FighterData.MYSTIGGOHAN,FighterData.TRUNKSFUTURE,FighterData.TRUNKS,FighterData.KRILLIN,FighterData.YAMCHA,FighterData.TENSHINHAN,FighterData.PICCOLO,FighterData.SSJGOTEN,FighterData.YOUNGTRUNKS,FighterData.GOTENKS,FighterData.SSJGOTENKS,FighterData.SSJ3GOTENKS
+	public static int[] fighters ={FighterData.GOKU,FighterData.SSJGOKU,FighterData.SSJ2GOKU,FighterData.SSJ3GOKU,FighterData.SSJ4GOKU,FighterData.VEGETA,FighterData.SSJVEGETA,FighterData.SSJ2VEGETA,FighterData.SSJ4VEGETA,FighterData.VEGETO,FighterData.GOHANKID,FighterData.TEENGOHAN,FighterData.GOHANSSJ2,FighterData.GOHAN,FighterData.SSJSONGOHAN,FighterData.MYSTIGGOHAN,FighterData.TRUNKSFUTURE,FighterData.TRUNKS,FighterData.KRILLIN,FighterData.YAMCHA,FighterData.TENSHINHAN,FighterData.PICCOLO,FighterData.SSJGOTEN,FighterData.YOUNGTRUNKS,FighterData.GOTENKS,FighterData.SSJGOTENKS,FighterData.SSJ3GOTENKS
 		,FighterData.UUB,FighterData.NAPPA,FighterData.GULDO,FighterData.RECOOME,FighterData.BURTER,FighterData.JEECE,FighterData.GINYU,FighterData.FREEZER,FighterData.FREEZER100,FighterData.DRGERO,FighterData.C16,FighterData.C17,FighterData.C18,FighterData.IMPERFECTCELL,FighterData.SCNDCELL,FighterData.CELL,FighterData.CELLSUPER,FighterData.CELLJR,FighterData.KAI,FighterData.PUIPUI,FighterData.DABURA,FighterData.FATBOO,FighterData.BOO,FighterData.BOOTENKS,FighterData.BOOHAN,FighterData.KIDBOO,FighterData.HERCULE,FighterData.BARDOCK
 		,FighterData.COOLER,FighterData.METALCOOLER,FighterData.TAPION,FighterData.BROLY,FighterData.SSJ4BROLY,FighterData.C13,FighterData.SUPERC13,FighterData.JANEMBA,FighterData.BABYVEGETA,FighterData.GOKUSSJ5,FighterData.SQUID,FighterData.RANDOM};
 	
 	
 	private int scrollx=0;
-	private  ArrayList<Integer> selection=new ArrayList<Integer>();
-	private  ArrayList<Integer> teamselection=new ArrayList<Integer>();
-	private  ArrayList<PlayerControl> steuerung=new ArrayList<PlayerControl>();
-	private Font minifont=new Font("Arial",0,12);
+	private final ArrayList<Integer> selection=new ArrayList<Integer>();
+	private final ArrayList<Integer> teamselection=new ArrayList<Integer>();
+	private final ArrayList<PlayerControl> steuerung=new ArrayList<PlayerControl>();
+	private final Font minifont=new Font("Arial",0,12);
 	public FighterSelection(boolean[] free)
 	{
 		freefighters=free;
@@ -164,7 +157,7 @@ public class FighterSelection extends MenuData{
 			{
              
 			titel="Team "+(teamselection.get(i)+1);
-			if(steuerungwahl==false)
+			if(!steuerungwahl)
 			{
 				titel="SP."+(i+1);
 			}
@@ -284,17 +277,17 @@ public class FighterSelection extends MenuData{
 	{
 
 		g.setFont(font);
-		g.drawImage(GameImages.menuback,0,0,(int)(1000),(int)(600),null);
+		g.drawImage(GameImages.menuback,0,0, 1000, 600,null);
 		//Title
-		g.drawImage(GameImages.cursor[0],(int)(200),(int)(20),(int)(600),(int)(50),null);
+		g.drawImage(GameImages.cursor[0], 200, 20, 600, 50,null);
 		g.setColor(new Color(0,0,0));
-		g.drawString("Character Selection",(int)(360),(int)(55));
+		g.drawString("Character Selection", 360, 55);
 		g.setColor(new Color(200,200,200));
-		g.fillRect(0,(int)(140),(int)(1000),(int)(240));
+		g.fillRect(0, 140, 1000, 240);
 	
 		g.setColor(new Color(0,0,0));
 	
-		g.drawRect((int)(0),(int)(140),(int)(1000),(int)(600));
+		g.drawRect(0, 140, 1000, 600);
 		
 	//	if(((scrollx+1)*14)<fighters.length)
 	//	{
@@ -385,25 +378,29 @@ public class FighterSelection extends MenuData{
 			x-=7;
 		}
 		g.setColor(new Color(0,0,0));
-		g.fillRect((int)((148+x*105)),(int)((y-2)),(int)(104),(int)(104));
+		g.fillRect((148+x*105), (y-2), 104, 104);
 		
 		boolean locked=false;
 		       		
 		     if(fighters[id]==FighterData.RANDOM)
 		     {
-		    		g.drawImage(GameImages.fighterselection[1],(int)((150+x*105)),(int)(y),(int)(100),(int)(100),null);
+		    		g.drawImage(GameImages.fighterselection[1], (150+x*105), y, 100,
+                        100,null);
 					
 		     }
 		     else
 		     {
 			   if(freefighters[fighters[id]])
 			   {
-					g.drawImage(GameImages.fighterselection[fighters[id]+2],(int)((150+x*105)),(int)(y),(int)(100),(int)(100),null);
+					g.drawImage(GameImages.fighterselection[fighters[id]+2], (150+x*105), y,
+                        100,
+                        100,null);
 					 
 			   }
 			   else 
 			   {
-					g.drawImage(GameImages.fighterselection[0],(int)((150+x*105)),(int)(y),(int)(100),(int)(100),null);
+					g.drawImage(GameImages.fighterselection[0], (150+x*105), y, 100,
+                        100,null);
 					locked=true;
 			   }
 		     }
@@ -413,7 +410,7 @@ public class FighterSelection extends MenuData{
 		
 		
 		String name=FighterData.getName(fighters[id]);
-		if(locked==false)
+		if(!locked)
 		{
 	//	FontMetrics metrics = g.getFontMetrics(font2);
 		g.setColor(new Color(0,0,0,200));
@@ -425,22 +422,22 @@ public class FighterSelection extends MenuData{
 		if(selection.get(pselect)==id)
 		{
 			g.setColor(new Color(255,255,0));
-			g.fillRect((int)((148+x*105)),(int)((y-2)),(int)(104),(int)(4));
-			g.fillRect((int)((148+x*105)),(int)((y+98)),(int)(104),(int)(4));
-			g.fillRect((int)((148+x*105)),(int)((y-2)),(int)(4),(int)(104));
-			g.fillRect((int)((248+x*105)),(int)((y-2)),(int)(4),(int)(104));
+			g.fillRect((148+x*105), (y-2), 104, 4);
+			g.fillRect((148+x*105), (y+98), 104, 4);
+			g.fillRect((148+x*105), (y-2), 4, 104);
+			g.fillRect((248+x*105), (y-2), 4, 104);
 		}
 
 
-		if(locked==false)
+		if(!locked)
 		{
 			g.setColor(Color.BLACK);
-			g.drawString(name,(int)((152+x*105)),(int)((y+99)));
+			g.drawString(name, (152+x*105), (y+99));
 			g.setColor(Color.GRAY);
 		if(mx>150+x*105&&mx<250+x*105&&my>y&&my<y+100)
 	    {
 	    	g.setColor(new Color(255,255,255,100));
-	    	g.fillRect((int)((150+x*105)),(int)(y),(int)(100),(int)(100));
+	    	g.fillRect((150+x*105), y, 100, 100);
 	    	g.setColor(new Color(255,255,0));
 	    	if(klickn==1)
 	    	{
@@ -453,7 +450,7 @@ public class FighterSelection extends MenuData{
 	    	}
 	         selec=id;
 	    }
-		g.drawString(FighterData.getName(fighters[id]),(int)((153+x*105)),(int)((y+99)));
+		g.drawString(FighterData.getName(fighters[id]), (153+x*105), (y+99));
 		}
 		
 		
@@ -464,9 +461,9 @@ public class FighterSelection extends MenuData{
 	 
 		g.setColor(new Color(200,200,200));
 		
-		g.fillRect((int)(100),(int)(ay-20),(int)(400),(int)(155));
+		g.fillRect(100, ay-20, 400, 155);
 		g.setColor(new Color(0,0,0));
-		g.drawRect((int)(100),(int)(ay-20),(int)(400),(int)(155));
+		g.drawRect(100, ay-20, 400, 155);
 	 
 	/* g.setColor(new Color(0,0,0));
 	 g.setFont(font3);
@@ -584,8 +581,9 @@ public class FighterSelection extends MenuData{
 	 }
 	 if(mapselection)
 	 {
-	 g.drawImage(GameImages.mapselection,(int)(640),(int)(400),(int)(240),(int)(130),null);
-	 g.drawImage(GameImages.stages[stages[stageselection].getID()+1], (int)(660),(int)(404),(int)(200),(int)(120),null);
+	 g.drawImage(GameImages.mapselection, 640, 400, 240, 130,null);
+	 g.drawImage(GameImages.stages[stages[stageselection].getID()+1], 660, 404, 200,
+         120,null);
 	 g.setColor(new Color(255,255,255));
 	 String map=stages[stageselection].getName();
 	 g.setFont(font3);
@@ -596,7 +594,7 @@ public class FighterSelection extends MenuData{
 	  if(mx>640&&mx<658)
 	  {
 		  g.setColor(new Color(255,255,255,150));
-		  g.fillRect((int)(642),(int)(402),(int)(16),(int)(126));
+		  g.fillRect(642, 402, 16, 126);
 		  if(klickn>0)
 		  {
 			  stageselection--;
@@ -609,7 +607,7 @@ public class FighterSelection extends MenuData{
 	  if(mx>862&&mx<880)
 	  {
 		  g.setColor(new Color(255,255,255,150));
-		  g.fillRect((int)(862),(int)(402),(int)(16),(int)(126));
+		  g.fillRect(862, 402, 16, 126);
 		  if(klickn>0)
 		  {
 			  stageselection++;
@@ -632,7 +630,7 @@ public class FighterSelection extends MenuData{
 		{
 			fertig=true;
 		}
-		}while(fertig==false);
+		}while(!fertig);
 		return c;
 	}
 

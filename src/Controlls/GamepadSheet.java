@@ -4,7 +4,7 @@ public class GamepadSheet extends ControlSheet {
 
 	
 	
-	private int[] buttonnr=new int[6];
+	private final int[] buttonnr=new int[6];
 	private String padname="-";
 	
 	public GamepadSheet()

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Chapter {
 
-	private String name;
+	private final String name;
 	
-	private  ArrayList<StoryBattle> fights=new ArrayList<StoryBattle>();
+	private final ArrayList<StoryBattle> fights=new ArrayList<StoryBattle>();
 	
 	public Chapter(String name)
 	{

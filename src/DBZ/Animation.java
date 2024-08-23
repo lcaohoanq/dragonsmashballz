@@ -18,7 +18,7 @@ public class Animation {
 	
 	public void newAnimation(int dauer, int start, int ende)
 	{
-		if(run==false)
+		if(!run)
 		{
 		timer=0;
 		duration=dauer;

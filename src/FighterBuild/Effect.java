@@ -10,8 +10,9 @@ public class Effect {
     
     public static final int STATUS_KI2=0,STATUS_BLITZ=1,STATUS_NORMALHEAL=2,STATUS_FULLKICRIT=3,STATUS_PRIZEMONEY=4;
 	
-	private int typ,art;
-	private float power;
+	private final int typ;
+    private final int art;
+	private final float power;
 	
 	public Effect(float p, int t, int a)
 	{

@@ -43,14 +43,7 @@ public class MiniTimer {
 	
 	public boolean isRunning()
 	{
-		if(isRunning&&finished==false)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+        return isRunning && !finished;
 	}
 	
 	public boolean isFinished()

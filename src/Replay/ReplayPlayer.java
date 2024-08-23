@@ -6,7 +6,7 @@ public class ReplayPlayer {
 
 	
 	
-	private int time=0;
+	private final int time=0;
 	
 	public ReplayPlayer()
 	{

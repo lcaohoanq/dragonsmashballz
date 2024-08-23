@@ -4,7 +4,7 @@ import java.awt.Dimension;
 
 public class Map {
 
-	private byte[][][] map;
+	private final byte[][][] map;
    Dimension dim=new Dimension();
  
 	

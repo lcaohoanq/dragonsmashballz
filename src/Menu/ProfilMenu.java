@@ -1,14 +1,5 @@
 package Menu;
 
-import java.awt.AlphaComposite;
-import java.awt.Color;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-
 import Achievements.Task;
 import DBZ.Main;
 import Fight.FighterData;
@@ -18,6 +9,14 @@ import Images.GameImages;
 import Save.HistoryFight;
 import Save.MatchHistory;
 import Save.Profil;
+import java.awt.AlphaComposite;
+import java.awt.Color;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class ProfilMenu extends MenuData{
 
@@ -25,15 +24,15 @@ public class ProfilMenu extends MenuData{
 	
 	private int submenu=0;
 	
-	private ItemData idata=new ItemData();
-	private BuildMenu bmenu=new BuildMenu();
+	private final ItemData idata=new ItemData();
+	private final BuildMenu bmenu=new BuildMenu();
 	
 	private int iselect=-1;
 	private int fselect=-1;
 
 	private int scrolly=0;
 	private int sort=-1;
-	private int[] fightid=new int[Main.fighteranz];
+	private final int[] fightid=new int[Main.fighteranz];
 
 	  private int historyscroll=0;
 	
@@ -59,7 +58,7 @@ public class ProfilMenu extends MenuData{
 	
 	public Profil paint(Graphics g,Profil profil, MatchHistory history, float flyw)
 	{
-		g.drawImage(GameImages.menuback,0,0,(int)(1000),(int)(600),null);
+		g.drawImage(GameImages.menuback,0,0, 1000, 600,null);
 		paintGoku(g,flyw);
 		
 		if(submenu==0)
@@ -75,7 +74,7 @@ public class ProfilMenu extends MenuData{
 		 
 		 String[] name={"Money: ","Playtime:  ","Fighters: "};
 		 String[] value=new String[3];
-		 value[0]=""+profil.getZeni()+" Zeni";
+		 value[0]= profil.getZeni()+" Zeni";
 		 value[1]=time;
 		 value[2]=profil.getFighterAmount()+" / "+(Main.fighteranz);
 		 
@@ -459,7 +458,8 @@ public class ProfilMenu extends MenuData{
 			int id=i+scrolly*8;
 			if(id<Main.fighteranz)
 			{
-				if(profil.haveFighter(FighterSelection.fighters[fightid[id]])==false&&FighterData.kaufbar(FighterSelection.fighters[fightid[id]])==false)
+				if(!profil.haveFighter(FighterSelection.fighters[fightid[id]]) && !FighterData.kaufbar(
+                    FighterSelection.fighters[fightid[id]]))
 				{
 	
 			g.drawImage(GameImages.fighterselection[0],x+10,y+20+i*50,50,40,null);
@@ -472,7 +472,7 @@ public class ProfilMenu extends MenuData{
 
 	        
 			   int fid=FighterSelection.fighters[fightid[id]];
-			      String ausgb[]=new String[8];
+			      String[] ausgb =new String[8];
 			      ausgb[0]=stat[fid][0]+"/"+stat[fid][1];
 			      ausgb[1]=""+stat[fid][2];
 			      ausgb[2]=""+stat[fid][3];
@@ -855,12 +855,10 @@ public class ProfilMenu extends MenuData{
 			
 			  int bx=x+i*90;
 			  int by=y+h*55;
-			  boolean kannkaufen=true;
-			  if(FighterData.kaufbar(FighterSelection.fighters[h*10+i])==false&&profil.haveFighter(FighterSelection.fighters[h*10+i])==false)
-			  {
-				  kannkaufen=false;
-			  }
-			  if(kannkaufen)
+			  boolean kannkaufen=
+                  FighterData.kaufbar(FighterSelection.fighters[h * 10 + i]) || profil.haveFighter(
+                      FighterSelection.fighters[h * 10 + i]);
+                if(kannkaufen)
 			  {
 			  if(mx>=bx&&mx<=bx+80&&my>=by&&my<=by+50)
 			  {
@@ -933,7 +931,7 @@ public class ProfilMenu extends MenuData{
 		
 			int[] p=FighterData.getAttributes(fselect);
 			int price=FighterData.getPrice(fselect);
-			if(profil.haveFighter(fselect)==false)
+			if(!profil.haveFighter(fselect))
 			{
 			if(profil.getZeni()>=price)
 			{

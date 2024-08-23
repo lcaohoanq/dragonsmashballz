@@ -1,19 +1,8 @@
 package Controlls;
 
 
-import java.awt.AWTException;
-import java.awt.Image;
-import java.awt.Rectangle;
-import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.image.RenderedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-
-import DBZ.Main;
 
 
 
@@ -21,12 +10,12 @@ import DBZ.Main;
 public class Keys implements KeyListener{
 	
 	
-	private boolean[] tastendruck=new boolean[1000];
+	private final boolean[] tastendruck=new boolean[1000];
 	
 
 	
-	private int[] cheatcounter={0,0,0,0};	
-	private String[] cheatstring={"helpmegoku","thxvegeta","capsulecorp","itsover9000"};
+	private final int[] cheatcounter={0,0,0,0};
+	private final String[] cheatstring={"helpmegoku","thxvegeta","capsulecorp","itsover9000"};
 	private int cheat=0;
 	private int lastkey=-1;
 	
@@ -54,7 +43,7 @@ public class Keys implements KeyListener{
 	}
 	
 	public void keyPressed(KeyEvent k) {
-		//Wird aufgerufen wenn eine Taste gedrückt wird
+		//Wird aufgerufen wenn eine Taste gedrï¿½ckt wird
 	
 			tastendruck[k.getKeyCode()]=true;
 	}
@@ -68,7 +57,7 @@ public class Keys implements KeyListener{
 	}
 
 	public static int pressedkey=-1;
-	private int number=0;
+	private final int number=0;
 	public void keyReleased(KeyEvent k) {
 		//Wird aufgerufen wenn eine Taste losgelassen wird
 		tastendruck[k.getKeyCode()]=false;
@@ -104,7 +93,7 @@ public class Keys implements KeyListener{
 	
 
 	public void keyTyped(KeyEvent k) {
-		//Wird aufgerufen wenn eine Taste gedrückt und danach losgelassen wird
+		//Wird aufgerufen wenn eine Taste gedrï¿½ckt und danach losgelassen wird
 		
 	}		
 }

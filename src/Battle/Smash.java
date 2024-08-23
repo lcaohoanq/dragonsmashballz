@@ -1,11 +1,10 @@
 package Battle;
 
 
-import java.awt.Graphics;
-import java.awt.Rectangle;
-
 import DBZ.Main;
 import Images.GameImages;
+import java.awt.Graphics;
+import java.awt.Rectangle;
 
 
 public class Smash extends Attack{
@@ -30,7 +29,7 @@ public class Smash extends Attack{
 	
 	public Damage crash(int abs,int x, int y, int r2,int blood)
 	{
-		if(inRadius((int)pos[0],x,(int)pos[1],y,dim.width/2+r2)&&onehit==false&&Main.team.isEnemy(abs, absender))
+		if(inRadius((int)pos[0],x,(int)pos[1],y,dim.width/2+r2)&& !onehit &&Main.team.isEnemy(abs, absender))
 		{
 			onehit=true;//only 1 hit chance
 			
@@ -50,7 +49,9 @@ public class Smash extends Attack{
 		   {
 			   if(Main.PAINT)
 				{
-				g.drawImage(GameImages.effects[time/(smashtime/4)+art],(int)((pos[0]-dim.width/2)),(int)((pos[1]-dim.height/2)),(int)(dim.width),(int)(dim.height),null);
+				g.drawImage(GameImages.effects[time/(smashtime/4)+art],(int)((pos[0]-dim.width/2)),(int)((pos[1]-dim.height/2)),
+                    dim.width,
+                    dim.height,null);
 				}
 		   }
 		 
@@ -64,7 +65,9 @@ public class Smash extends Attack{
 
 	@Override
 	public Rectangle getSize() {
-		Rectangle rec=new Rectangle((int)((pos[0]-dim.width/2)),(int)((pos[1]-dim.height/2)),(int)(dim.width),(int)(dim.height));
+		Rectangle rec=new Rectangle((int)((pos[0]-dim.width/2)),(int)((pos[1]-dim.height/2)),
+            dim.width,
+            dim.height);
 		return rec;
 	}
 

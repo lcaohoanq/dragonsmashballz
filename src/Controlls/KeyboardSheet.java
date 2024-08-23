@@ -1,13 +1,12 @@
 package Controlls;
 
-import java.awt.event.KeyEvent;
-
 import Settings.ControlSettings;
+import java.awt.event.KeyEvent;
 
 public class KeyboardSheet extends ControlSheet{
 
 	
-	private int[] keys=new int[8];
+	private final int[] keys=new int[8];
 	
 	public KeyboardSheet()
 	{
