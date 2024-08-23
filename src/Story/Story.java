@@ -1,4 +1,4 @@
-﻿package Story;
+package Story;
 
 import java.util.ArrayList;
 

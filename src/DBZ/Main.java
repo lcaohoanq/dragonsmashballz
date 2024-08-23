@@ -276,29 +276,34 @@ public class Main extends JFrame{
 	}
 	
 	public static boolean hide=false;
-	
-	public static void hideMouse(boolean h)
-	{
-		Cursor c =null; 
-		if(h)
-		{
-			c = Toolkit.getDefaultToolkit().createCustomCursor(
-		              new BufferedImage(1,1,BufferedImage.TYPE_INT_ARGB),
-		                new Point(1, 1), "Custom Cursor"); 
-			
+
+	public static void hideMouse(boolean h) {
+		Cursor c = null;
+		try {
+			if (h) {
+				BufferedImage img = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB); // Changed size
+				c = Toolkit.getDefaultToolkit().createCustomCursor(
+					img,
+					new Point(0, 0), // Adjusted hotspot
+					"Custom Cursor"
+				);
+			} else {
+				if (GameImages.mouse0 == null) {
+					throw new IllegalArgumentException("Mouse image is not initialized.");
+				}
+				c = Toolkit.getDefaultToolkit().createCustomCursor(
+					GameImages.mouse0,
+					new Point(0, 0), // Adjusted hotspot
+					"Custom Cursor"
+				);
+			}
+			hide = h;
+			main.setCursor(c);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
-		else
-		{
-			 c = Toolkit.getDefaultToolkit().createCustomCursor(
-		              GameImages.mouse0,
-		                new Point(1, 1), "Custom Cursor"); 
-		}
-		hide=h;
-		 main.setCursor(c);
 	}
-	
-	
-	
+
 	public static int vx;
 	public static int vy;
 	
@@ -477,7 +482,7 @@ public class Main extends JFrame{
 		}
 		else
 		{
-			//cheaten verhindern : nur im menü erlaubt
+			//cheaten verhindern : nur im menï¿½ erlaubt
 			keys.activateCheat();
 		
 			
@@ -486,7 +491,7 @@ public class Main extends JFrame{
 			
 			if(vscreen.isActiv())
 			{
-				keys.getLastKey(); //verhindern von sofort pause öffnen danach
+				keys.getLastKey(); //verhindern von sofort pause ï¿½ffnen danach
 				vscreen.paint(g);
 				if(vscreen.canClose())
 				{//Fight begin
@@ -577,7 +582,7 @@ public class Main extends JFrame{
 			
 		}	
 		menu.resetKlick();
-		//Spielzeit weiterzählen
+		//Spielzeit weiterzï¿½hlen
 		zeit=(int)System.currentTimeMillis();
 		if(zeit/1000!=zeit2/1000)
 		{
@@ -755,7 +760,7 @@ public class Main extends JFrame{
 	    
 	    
 	 
-	private   java.util.Timer gametimer;
+	private   Timer gametimer;
 	private  Loop gameloop;
 	
 		double t= System.currentTimeMillis();

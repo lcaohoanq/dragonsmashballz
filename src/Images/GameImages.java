@@ -78,7 +78,7 @@ public class GameImages {
 				pause=Toolkit.getDefaultToolkit().getImage( filename );
 				filename = getClass().getResource(bf+"brollintro.jpg");
 				brollintro=Toolkit.getDefaultToolkit().getImage( filename );
-				filename = getClass().getResource(bf+"battlestory.jpg");
+				filename = getClass().getResource(bf+"battleStory.jpg");
 				storybattle=Toolkit.getDefaultToolkit().getImage( filename );
 				filename = getClass().getResource(bf+"glitter.png");
 				glitter=Toolkit.getDefaultToolkit().getImage( filename );
