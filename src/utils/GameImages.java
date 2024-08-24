@@ -87,44 +87,44 @@ public class GameImages {
         brollintro = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.BROLLINTRO);
         storybattle = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.BATTLESTORY);
         glitter = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.GLITTER);
-        achblock[0] = loadImage(ResourcesPath.BASE_PATH, "achblock.png");
-        achblock[1] = loadImage(ResourcesPath.BASE_PATH, "achblock2.png");
-        pod = loadImage(ResourcesPath.BASE_PATH, "spacepod.gif");
-        stars = loadImage(ResourcesPath.BASE_PATH, "stars.gif");
-        pluscharacter = loadImage(ResourcesPath.BASE_PATH, "pluscharacter.png");
-        subcharacter = loadImage(ResourcesPath.BASE_PATH, "subcharacter.png");
-        mouse0 = loadImage(ResourcesPath.BASE_PATH, "dbmouse0.png");
-        logo = loadImage(ResourcesPath.BASE_PATH, "logo.png");
-        songoku = loadImage(ResourcesPath.BASE_PATH, "songokumenu.gif");
-        songohan = loadImage(ResourcesPath.BASE_PATH, "gohanmenu.gif");
-        nextrow = loadImage(ResourcesPath.BASE_PATH, "nextrow.png");
-        messagebox = loadImage(ResourcesPath.BASE_PATH, "messagebox.png");
-        messagepfeil = loadImage(ResourcesPath.BASE_PATH, "messagepfeil.png");
-        duellpress[1] = loadImage(ResourcesPath.BASE_PATH, "duellpress.png");
+        achblock[0] = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.ACHBLOCK);
+        achblock[1] = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.ACHBLOCK2);
+        pod = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.SPACEPOD);
+        stars = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.STARS);
+        pluscharacter = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.PLUS_CHARACTER);
+        subcharacter = loadImage(ResourcesPath.BASE_PATH,  ResourcesFile.SUB_CHARACTER);
+        mouse0 = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.DB_MOUSE);
+        logo = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.LOGO);
+        songoku = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.SONGOKU_MENU);
+        songohan = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.GOHAN_MENU);
+        nextrow = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.NEXT_ROW);
+        messagebox = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.MESSAGE_BOX);
+        messagepfeil = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.MESSAGE_PFEIL);
+        duellpress[1] = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.DUELL_PRESS);
         duellpress[0] = cropImage(duellpress[1], 0, 0, 50, 40);
         duellpress[1] = cropImage(duellpress[1], 50, 0, 50, 40);
-        ki = loadImage(ResourcesPath.BASE_PATH, "ki.png");
-        introback = loadImage(ResourcesPath.BASE_PATH, "intro.gif");
-        shenlong = loadImage(ResourcesPath.BASE_PATH, "shenlong.gif");
-        title = loadImage(ResourcesPath.BASE_PATH, "title.png");
-        cursor[2] = loadImage(ResourcesPath.BASE_PATH, "cursor.png");
+        ki = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.KI);
+        introback = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.INTRO);
+        shenlong = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.SHENLONG);
+        title = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.TITLE);
+        cursor[2] = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.CURSOR);
         for (int i = 0; i < 3; i++) {
             cursor[i] = cropImage(cursor[2], 0, i * 74, 781, 74);
         }
-        ko = loadImage(ResourcesPath.BASE_PATH, "ko.png");
-        congratulations = loadImage(ResourcesPath.BASE_PATH, "congratulations.png");
-        failed = loadImage(ResourcesPath.BASE_PATH, "failed.png");
-        vs = loadImage(ResourcesPath.BASE_PATH, "vs.png");
-        ring = loadImage(ResourcesPath.BASE_PATH, "ring.png");
-        ring2 = loadImage(ResourcesPath.BASE_PATH, "ring2.png");
-        raumschiff = loadImage(ResourcesPath.BASE_PATH, "raumschiff.jpg");
-        versusscreen = loadImage(ResourcesPath.BASE_PATH, "versusscreen.png");
-        hudready = loadImage(ResourcesPath.BASE_PATH, "ready.png");
-        hudfight = loadImage(ResourcesPath.BASE_PATH, "fight.png");
-        menuback = loadImage(ResourcesPath.BASE_PATH, "menuback.png");
+        ko = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.KO);
+        congratulations = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.CONGRATULATIONS);
+        failed = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.FAILED);
+        vs = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.VS);
+        ring = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.RING);
+        ring2 = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.RING_2);
+        raumschiff = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.RAUM_SCHIFF);
+        versusscreen = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.VERSUSS_SCREEN);
+        hudready = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.READY);
+        hudfight = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.FIGHT);
+        menuback = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.MENU_BACK);
 
         Image[] font = new Image[41];
-        font[40] = loadImage(ResourcesPath.BASE_PATH, "alphabet.gif");
+        font[40] = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.ALPHABET);
         for (int i = 0; i < 41; i++) {
             font[i] = cropImage(font[40], i * 40, 0, 40, 40);
         }
@@ -139,7 +139,7 @@ public class GameImages {
             }
         }
 
-        mapchars[47] = loadImage(ResourcesPath.BASE_PATH, "mapchara.png");
+        mapchars[47] = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.MAP_CHARA);
         for (int i = 0; i < 4; i++) {
             for (int h = 0; h < 4; h++) {
                 for (int j = 0; j < 3; j++) {
@@ -149,46 +149,46 @@ public class GameImages {
             }
         }
 
-        titlemenucursors[1] = loadImage(ResourcesPath.BASE_PATH, "titlemenucursor.png");
-        controllicons[1] = loadImage(ResourcesPath.BASE_PATH, "controllicons.png");
+        titlemenucursors[1] = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.TITLE_MENU_CURSOR);
+        controllicons[1] = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.CONTROL_LLICONS);
         for (int i = 0; i < 2; i++) {
             titlemenucursors[i] = cropImage(titlemenucursors[1], 0, i * 55, 472, 55);
             controllicons[i] = cropImage(controllicons[1], i * 40, 0, 40, 40);
         }
 
-        worldicons[worldicons.length - 1] = loadImage(ResourcesPath.BASE_PATH, "worldicons.png");
+        worldicons[worldicons.length - 1] = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.WORLD_DICONS);
         for (int i = 0; i < worldicons.length; i++) {
             worldicons[i] = cropImage(worldicons[worldicons.length - 1], i * 50, 0, 50, 50);
         }
 
-        atticons[atticons.length - 1] = loadImage(ResourcesPath.BASE_PATH, "atticons.png");
+        atticons[atticons.length - 1] = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.ATTICONS);
         for (int i = 0; i < atticons.length; i++) {
             atticons[i] = cropImage(atticons[atticons.length - 1], i * 30, 0, 30, 30);
         }
 
-        itemicons[itemicons.length - 1] = loadImage(ResourcesPath.BASE_PATH, "itemicons.png");
+        itemicons[itemicons.length - 1] = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.ITEMICONS);
         for (int i = 0; i < itemicons.length; i++) {
             itemicons[i] = cropImage(itemicons[itemicons.length - 1], i * 40, 0, 40, 40);
         }
 
-        faces[faces.length - 1] = loadImage(ResourcesPath.BASE_PATH, "iconfaces.png");
+        faces[faces.length - 1] = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.ICONFACES);
         for (int i = 0; i < faces.length; i++) {
             faces[i] = cropImage(faces[faces.length - 1], i * 50, 0, 50, 50);
         }
 
-        aura[9] = loadImage(ResourcesPath.BASE_PATH, "aura.png");
+        aura[9] = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.AURA);
         for (int i = 0; i < 10; i++) {
             aura[i] = cropImage(aura[9], i * 100, 0, 100, 100);
         }
 
         fighterselection[fighterselection.length - 1] = loadImage(ResourcesPath.BASE_PATH,
-            "selection.png");
+            ResourcesFile.SELECTION);
         for (int i = 0; i < fighterselection.length; i++) {
             fighterselection[i] = cropImage(fighterselection[fighterselection.length - 1], i * 100,
                 0, 100, 100);
         }
 
-        menuicons[menuicons.length - 1] = loadImage(ResourcesPath.BASE_PATH, "menuicons.png");
+        menuicons[menuicons.length - 1] = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.MENU_ICONS);
         for (int i = 0; i < menuicons.length; i++) {
             menuicons[i] = cropImage(menuicons[menuicons.length - 1], i * 50, 0, 50, 50);
         }
@@ -198,22 +198,22 @@ public class GameImages {
             dragonballs[i] = cropImage(dragonballs[6], i * 50, 0, 50, 50);
         }
 
-        clouds[2] = loadImage(ResourcesPath.BASE_PATH, "clouds.gif");
+        clouds[2] = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.CLOUDS);
         for (int i = 0; i < 3; i++) {
             clouds[i] = cropImage(clouds[2], i * 150, 0, 150, 150);
         }
 
-        multisteer[multisteer.length - 1] = loadImage(ResourcesPath.BASE_PATH, "multisteer.png");
+        multisteer[multisteer.length - 1] = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.MULTISTEER);
         for (int i = 0; i < multisteer.length; i++) {
             multisteer[i] = cropImage(multisteer[multisteer.length - 1], i * 20, 0, 20, 20);
         }
 
-        active[1] = loadImage(ResourcesPath.BASE_PATH, "active.png");
+        active[1] = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.ACTIVE);
         for (int i = 0; i < 2; i++) {
             active[i] = cropImage(active[1], i * 20, 0, 20, 20);
         }
 
-        chapterimages[4] = loadImage(ResourcesPath.BASE_PATH, "chapters.png");
+        chapterimages[4] = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.CHAPTERS);
         for (int i = 0; i < 5; i++) {
             chapterimages[i] = cropImage(chapterimages[4], i * 100, 0, 100, 100);
         }
@@ -222,20 +222,20 @@ public class GameImages {
             maps[i] = loadImage(ResourcesPath.MAPS_PATH, "map" + i + ".gif");
         }
 
-        stages[stages.length - 1] = loadImage(ResourcesPath.BASE_PATH, "stages.png");
+        stages[stages.length - 1] = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.STAGES);
         for (int i = 0; i < stages.length; i++) {
             stages[i] = cropImage(stages[stages.length - 1], i * 200, 0, 200, 120);
         }
 
-        blitzicon[1] = loadImage(ResourcesPath.BASE_PATH, "blitzicons.png");
-        fighticon[1] = loadImage(ResourcesPath.BASE_PATH, "fighticons.png");
+        blitzicon[1] = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.BLITZICONS);
+        fighticon[1] = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.FIGHT_ICONS);
         for (int i = 0; i < 2; i++) {
             blitzicon[i] = cropImage(blitzicon[1], i * 8, 0, 8, 17);
             fighticon[i] = cropImage(fighticon[1], i * 25, 0, 25, 25);
         }
 
-        help[0] = loadImage(ResourcesPath.BASE_PATH, "helpGamepad.jpg");
-        brolllogo = loadImage(ResourcesPath.BASE_PATH, "brolllogo.png");
+        help[0] = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.HELP_GAME_PAD);
+        brolllogo = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.BROLLLOGO);
     }
 
     private Image loadImage(String basePath, String filename) {
@@ -250,7 +250,7 @@ public class GameImages {
 
     private Image[] loadEffects() {
         Image[] e = new Image[85];
-        Image b = loadImage(ResourcesPath.BASE_PATH, "effects.png");
+        Image b = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.EFFECTS);
         for (int g = 0; g < 4; g++) {
             for (int f = 0; f < 10; f++) {
                 e[g * 10 + f] = cropImage(b, f * 35, g * 35, 35, 35);
@@ -274,7 +274,7 @@ public class GameImages {
 
     private Image[] loadExplosions() {
         Image[] e = new Image[50];
-        Image b = loadImage(ResourcesPath.BASE_PATH, "bombs.png");
+        Image b = loadImage(ResourcesPath.BASE_PATH, ResourcesFile.BOMBS);
         for (int f = 0; f < 10; f++) {
             e[f] = cropImage(b, f * 35, 0, 35, 35);
         }
@@ -297,7 +297,7 @@ public class GameImages {
                 }
             }
         }
-        specialfighter[0][29] = loadImage(ResourcesPath.FIGHTER_IMAGES_PATH, "gokukaioken.png");
+        specialfighter[0][29] = loadImage(ResourcesPath.FIGHTER_IMAGES_PATH, ResourcesFile.GOKUKAIOKEN);
         for (int g = 0; g < 3; g++) {
             for (int f = 0; f < 10; f++) {
                 specialfighter[0][g * 10 + f] = cropImage(specialfighter[0][29], f * 100, g * 100,
