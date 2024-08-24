@@ -38,11 +38,9 @@ public class WorldReader {
             .orElseThrow(() -> new IOException("File not found: " + mapFilePath))) {
 
             String mapContent = reader.lines().collect(Collectors.joining());
-            log.info("Successfully read World {}", mapNumber);
             log.debug("Map content: {}", mapContent);
 
             byte[][][] mapData = parseMap(mapContent);
-            log.info("Successfully created Map {}", mapNumber);
             return Optional.of(new Map(mapData));
 
         } catch (IOException | IllegalArgumentException e) {
