@@ -6,6 +6,10 @@
       <root url="jar://$PROJECT_DIR$/libs/jmf.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/jogg-0.0.7.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/jorbis-0.0.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/lombok-1.18.30.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/slf4j-api-2.0.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/logback-classic-1.5.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/logback-core-1.5.6.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

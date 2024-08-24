@@ -3,7 +3,7 @@ package Battle;
 
 import DBZ.Form;
 import DBZ.Main;
-import Images.GameImages;
+import utils.GameImages;
 import java.awt.Dimension;
 import java.awt.Graphics;
 

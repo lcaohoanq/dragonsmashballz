@@ -1,0 +1,29 @@
+package enums;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
+public enum Effect {
+
+    //public static final int EFFECT_STATUS = 0, EFFECT_HEALTH = 1, EFFECT_STRENGTH = 2, EFFECT_DEFENCE = 3, EFFECT_SPEED = 4, EFFECT_KILOAD = 7,
+    //        EFFECT_SPECIAL = 8, EFFECT_POWERUP = 9, EFFECT_ATTACKSPEED = 5, EFFECT_REGENERATEHEALTH = 10, EFFECT_REGENERATEKI = 11, EFFECT_KIPOWER = 6;
+
+    EFFECT_STATUS(0),
+    EFFECT_HEALTH(1),
+    EFFECT_STRENGTH(2),
+    EFFECT_DEFENCE(3),
+    EFFECT_SPEED(4),
+    EFFECT_ATTACKSPEED(5),
+    EFFECT_KIPOWER(6),
+    EFFECT_KILOAD(7),
+    EFFECT_SPECIAL(8),
+    EFFECT_POWERUP(9),
+    EFFECT_REGENERATEHEALTH(10),
+    EFFECT_REGENERATEKI(11);
+
+    private final int value;
+
+
+}

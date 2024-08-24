@@ -1,0 +1,35 @@
+<project name="YourProject" default="compile" basedir=".">
+
+  <!-- Define the directory paths -->
+  <property name="src.dir" value="src/main/java"/>
+  <property name="build.dir" value="build"/>
+  <property name="lib.dir" value="lib"/>
+
+  <!-- Create build directory -->
+  <target name="init">
+    <mkdir dir="${build.dir}"/>
+  </target>
+
+  <!-- Compile the source code -->
+  <target name="compile" depends="init">
+    <javac srcdir="${src.dir}" destdir="${build.dir}" classpath="${lib.dir}/slf4j-api.jar:${lib.dir}/slf4j-simple.jar">
+      <include name="**/*.java"/>
+    </javac>
+  </target>
+
+  <!-- Package the compiled code into a JAR file -->
+  <target name="jar" depends="compile">
+    <jar destfile="your-project.jar" basedir="${build.dir}">
+      <manifest>
+        <attribute name="Main-Class" value="your.main.Class"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <!-- Clean build artifacts -->
+  <target name="clean">
+    <delete dir="${build.dir}"/>
+    <delete file="your-project.jar"/>
+  </target>
+
+</project>

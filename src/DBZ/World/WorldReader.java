@@ -3,79 +3,108 @@ package DBZ.World;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
-
+@Slf4j
+@NoArgsConstructor
+@Getter
+@Setter
 public class WorldReader {
+    public Map[] read() {
+        Map[] maps = new Map[2];
+        for (int i = 0; i < 2; i++) {
+            maps[i] = readSingleMap(i + 1).orElse(null);
+        }
+        return maps;
+    }
 
-	
-	public WorldReader(){
-		
-		
-	}
-	
-	
-	public Map[] read()
-	{
-		Map[] map=new Map[2];
-		for(int i=0; i<2; i++)
-		{
-		    System.out.println("Read Worldmap"+(i+1)+"...");
-			//URL filename = getClass().getResourceAsStream(Main.bf+"World"+(i+1)+".txt");	 
-		 	String zeile=""; //Lesestrings
+    private String getMapFilePath(int mapNumber) {
+        return "resources/Ressourcen/World" + mapNumber + ".txt";
+    }
 
-		 	 
-		 StringBuffer m=new StringBuffer();
-				try {
-					 BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream("DBZ/Ressourcen/World"+(i+1)+".txt")));//Textdatei mit Name name einlesen			 		   
-				    while((zeile = reader.readLine())!= null){
-				    	m.append(zeile);
-				    }
-				     
-				   }
-			       catch (IOException f) 
-			    {
-			    System.err.println("Error2 :"+f);
-			    }
-			
-			    System.out.println("Read succesfully");
-			    System.out.println("Create Map"+(i+1));
-	byte[][][]	mb=readMap(m.toString());
-		
-		 map[i]=new Map(mb);
-		}
-		return map;
-	}
+    private Optional<Map> readSingleMap(int mapNumber) {
+        log.info("Reading World {}...", mapNumber);
+        String mapFilePath = getMapFilePath(mapNumber);
 
+        try (BufferedReader reader = Optional.ofNullable(
+                new BufferedReader(new InputStreamReader(
+                    getClass().getClassLoader().getResourceAsStream(mapFilePath))))
+            .orElseThrow(() -> new IOException("File not found: " + mapFilePath))) {
 
-	private byte[][][] readMap(String m) {
-		
-		   String[] maps = m.split("\\;");
-			String[] mapss = maps[0].split("\\,");
-   	  int  mapw=Integer.parseInt(mapss[0]);
-   	  int  maph=Integer.parseInt(mapss[1]);
-   	  
-   	    int x=0,y=0;
-   	    byte[][][] fields=new byte[mapw][maph][2];
-   	    
-   	    for(int i=1; i<maps.length; i++)
-   	    {
-   	    	String[] felds = maps[i].split("\\,");
-   	    	fields[x][y][0]=(byte)Integer.parseInt(felds[0]);
-   	    	byte f2=(byte)Integer.parseInt(felds[1]);
-   	 
-   	    	 	fields[x][y][1]=f2;
-   	    	y++;
-   	    	if(y>=maph)
-   	    	{
-   	    		y=0;
-   	    		x++;
-   	    	}
-   	    }
-		return fields;
-	}
+            String mapContent = reader.lines().collect(Collectors.joining());
+            log.info("Successfully read World {}", mapNumber);
+            log.debug("Map content: {}", mapContent);
 
+            byte[][][] mapData = parseMap(mapContent);
+            log.info("Successfully created Map {}", mapNumber);
+            return Optional.of(new Map(mapData));
 
+        } catch (IOException | IllegalArgumentException e) {
+            log.error("Error reading or parsing World {}: {}", mapNumber, e.getMessage());
+            return Optional.empty();
+        }
+    }
 
+    private byte[][][] parseMap(String mapContent) {
+        if (mapContent.isEmpty()) {
+            throw new IllegalArgumentException("Map content is empty");
+        }
 
+        String[] sections = mapContent.split(";");
+        if (sections.length == 0) {
+            throw new IllegalArgumentException("Invalid map content: no sections found");
+        }
+
+        String[] dimensions = sections[0].split(",");
+        if (dimensions.length != 2) {
+            throw new IllegalArgumentException("Invalid dimensions: expected width,height format");
+        }
+
+        int width, height;
+        try {
+            width = Integer.parseInt(dimensions[0]);
+            height = Integer.parseInt(dimensions[1]);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Invalid dimensions: non-numeric values");
+        }
+
+        byte[][][] fields = new byte[width][height][2];
+        int x = 0, y = 0;
+
+        for (int i = 1; i < sections.length; i++) {
+            String[] fieldData = sections[i].split(",");
+            if (fieldData.length != 2) {
+                throw new IllegalArgumentException("Invalid field data: expected two values per field");
+            }
+
+            try {
+                fields[x][y][0] = Byte.parseByte(fieldData[0]);
+                fields[x][y][1] = Byte.parseByte(fieldData[1]);
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("Invalid field data: non-numeric values");
+            }
+
+            y++;
+            if (y >= height) {
+                y = 0;
+                x++;
+            }
+        }
+
+        return fields;
+    }
+
+    public static void main(String[] args) {
+        WorldReader reader = new WorldReader();
+        Map[] maps = reader.read();
+        for (Map map : maps) {
+            System.out.println(map);
+        }
+    }
 }
-

@@ -3,7 +3,7 @@ package Battle;
 
 import Fight.Fighter;
 import Fight.FighterData;
-import Images.GameImages;
+import utils.GameImages;
 import java.awt.Graphics;
 
 

@@ -1,23 +1,18 @@
 package Menu;
 
 import DBZ.Main;
-import Images.GameImages;
+import lombok.NoArgsConstructor;
+import utils.GameImages;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Timer;
 import java.util.TimerTask;
 
+@NoArgsConstructor
 public class StartScreen {
 
 	private boolean finish=false;
 	private boolean started=false;
-	
-	
-	public StartScreen()
-	{
-		
-	}
-	
 	int yp=0;
 	private int time;
 	public void paint(Graphics g) {

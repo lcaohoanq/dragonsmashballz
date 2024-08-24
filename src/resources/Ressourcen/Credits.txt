@@ -87,18 +87,18 @@ moxie2D
 ravencolors
 Gokuten
 
-b.Sounds&Music
+b.Sounds&resources.Music
 
-Character Sounds and Music from DBZ Supersonic Warriors
+Character Sounds and resources.Music from DBZ Supersonic Warriors
 Effectsounds from Dragon Ball Z 
 
 Intromusic "Chala Head Chala (German Version)" 
 
 Menumusic "Dragon Soul"
 
-Credits Music by BRoll
+Credits resources.Music by BRoll
 
-Epic Battle Music by 331Erock:
+Epic Battle resources.Music by 331Erock:
 
 - "UN Owen was her_Death Waltz Meets Metal"
 - "Dr. Who Meets Metal"
@@ -132,7 +132,7 @@ FlipelyFlip
 Noa3
 Christopher
 Raffi
-Niki (~Nükü)
+Niki (~Nï¿½kï¿½)
 
 
 For other Helpers:

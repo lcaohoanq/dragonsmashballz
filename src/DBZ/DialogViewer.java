@@ -1,7 +1,7 @@
 package DBZ;
 
 import Fight.Fighter;
-import Images.GameImages;
+import utils.GameImages;
 import Menu.MenuData;
 import Story.Dialog;
 import Story.DialogAktion;

@@ -2,7 +2,7 @@ package Battle;
 
 
 import DBZ.Main;
-import Images.GameImages;
+import utils.GameImages;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;

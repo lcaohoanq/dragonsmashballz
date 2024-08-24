@@ -6,25 +6,21 @@ import FighterBuild.Build;
 import FighterBuild.Effect;
 import FighterBuild.Item;
 import FighterBuild.ItemData;
-import Images.GameImages;
+import lombok.NoArgsConstructor;
+import utils.GameImages;
 import Save.Profil;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
+@NoArgsConstructor
 public class BuildMenu extends MenuData{
-	
-	
+
 	private int bselect=-1;
 	private int scrolly=0;
 	private final ItemData idata=new ItemData();
 	private Build[] build=new Build[Main.fighteranz];
 	ArrayList<Item> items=	idata.getItems();
-	
-	public BuildMenu()
-	{
-
-	}
 	
 	public void open(Build[] build){
 		
@@ -208,7 +204,7 @@ public class BuildMenu extends MenuData{
 			if(it[i]>0)
 			{
 				Item item=items.get(it[i]-1);
-				ArrayList<Effect> eff=item.getEffects();
+				ArrayList<Effect> eff=item.getEffect();
 				for(int h=0; h<eff.size(); h++)
 				{
 					Effect e=eff.get(h);
@@ -280,7 +276,7 @@ public class BuildMenu extends MenuData{
 			if(it[i]>0)
 			{
 			Item item=items.get(it[i]-1);			
-			g.drawImage(GameImages.itemicons[item.getIcon()],x+2,y,null);
+			g.drawImage(GameImages.itemicons[item.getBildid()],x+2,y,null);
 			}
 			x+=50;
 		}
@@ -357,7 +353,7 @@ public class BuildMenu extends MenuData{
 		
 		if(it!=null)
 		{
-			g.drawImage(GameImages.itemicons[it.getIcon()],x+5,y,null);
+			g.drawImage(GameImages.itemicons[it.getBildid()],x+5,y,null);
 			g.setFont(font3);
 			g.setColor(new Color(100,100,250));
 			g.drawString(it.getName(), x+50, y+17);

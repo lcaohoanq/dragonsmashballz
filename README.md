@@ -123,11 +123,11 @@ Inside of them are giant switch statements for cases specifying the attributes a
 
 Different resources are kept in different folders all over the workspace:
 
-- **Charactersounds/** Fighter sounds
+- **resources.Music.Charactersounds/** Fighter sounds
 - **DBZ/Maps/** Stage pictures
 - **DBZ/Ressourcen/** Most graphics for the menu and stuff
-- **FX/** Other game sounds
-- **Music/** Game music
+- **resources.Music.FX/** Other game sounds
+- **resources.resources/Music/** Game music
 
 Credits to the resources I used can be looked up in the credits menu in-game or by reading the file **DBZ/Ressourcen/Credits.txt**.
 

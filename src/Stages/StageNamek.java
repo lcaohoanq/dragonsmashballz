@@ -1,30 +1,28 @@
 package Stages;
 
 
-import Images.GameImages;
+import utils.GameImages;
 import java.awt.Graphics;
 
 
-public class StageNamek extends Stage{
+public class StageNamek extends Stage {
 
-	public StageNamek()
-	{
-		
-	}
-	
-	public void paint(Graphics g)
-	{	
-		g.drawImage(GameImages.maps[2], 0,0, 1000, 600,null);
-	}
-	
+    public StageNamek() {
 
-	public String getName() {
-		
-		return "Namek";
-	}
-	
-public int getID() {
-		
-		return 1;
-	}
+    }
+
+    public void paint(Graphics g) {
+        g.drawImage(GameImages.maps[2], 0, 0, 1000, 600, null);
+    }
+
+
+    public String getName() {
+
+        return "Namek";
+    }
+
+    public int getID() {
+
+        return 1;
+    }
 }

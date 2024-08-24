@@ -1,7 +1,7 @@
 package Stages;
 
 
-import Images.GameImages;
+import utils.GameImages;
 import java.awt.Graphics;
 
 

@@ -2,7 +2,7 @@ package DBZ.World;
 
 
 import DBZ.Main;
-import Images.GameImages;
+import utils.GameImages;
 import Story.Chapter;
 import Story.StoryBattle;
 import java.awt.Color;
