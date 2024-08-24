@@ -131,7 +131,20 @@ Different resources are kept in different folders all over the workspace:
 
 Credits to the resources I used can be looked up in the credits menu in-game or by reading the file **DBZ/Ressourcen/Credits.txt**.
 
+# Update
+- First time clone, you need to setup these thing (if development on Intellij)
+  - Add VM options in Run/Debug Configuration
+```
+-Djava.library.path=/media/DATA/PERSONAL/Java/Swing/ant-dragonbalz/libs
+```
 
+![image](https://github.com/user-attachments/assets/8c34d1a3-c6c6-45d9-a796-dd2f9ae99b3c)
+
+  - Add manually dependencies
+
+![image](https://github.com/user-attachments/assets/4e4773b6-dc25-4749-bd7b-a58d650d4d22)
+
+  - Fix jinput if meet error permission for device
 
 
 
