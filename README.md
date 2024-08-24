@@ -1,4 +1,4 @@
-![Logo](/src/DBZ/Ressourcen/logo.png)
+![Logo](/src/resources/Ressourcen/logo.png)
 
 ![Preview](preview.gif)
 
@@ -6,7 +6,7 @@ See it in action: https://www.youtube.com/watch?v=OzUPiuepd0Q
 
 ## How to play
 
-![Icon](/src/DBZ/Ressourcen/icon.png)
+![Icon](/src/resources/Ressourcen/icon.png)
 
 Download and extract newest zip from Releases (https://github.com/Rolleander/dragonsmashballz/releases).
 
